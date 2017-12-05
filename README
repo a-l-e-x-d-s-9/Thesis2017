@@ -1,0 +1,10 @@
+Uses:
+    1. python scripts.
+    2. bibtex - For bibliogrphy.
+    3. xelatex - Compile Latex.
+    4. evince - Preview PDF.
+    
+To compile:
+    cd ThesisToLatex
+    ./latex_to_pdf.sh adapt
+

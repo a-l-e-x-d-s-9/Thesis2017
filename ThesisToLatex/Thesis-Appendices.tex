@@ -1,0 +1,1503 @@
+\appendix
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{Appendix}
+\renewcommand{\thechapter}{A\arabic{chapter}}
+%%\chapter{Appendix}
+%%\chapter{Appendix}
+%%\chapter{Appendix}
+%%\section*{Appendices}
+%%\addcontentsline{toc}{section}{Appendices}
+%%\renewcommand{\thesubsection}{\Alph{subsection}}
+
+
+
+
+\chapter{  Concurrent module functions pseudocode }\label{Appendix_1} 
+\begin{lstlisting}[style=styleuppaal] 
+void concurrent_init( concurrent_info ){
+    concurrent_info.concurrent_requests[ 0 ].is_active  = 0
+    ...
+    concurrent_info.concurrent_requests[ REQUETS_LAST_ID ].is_active  = 0
+    
+    
+    concurrent_info.concurrent_requests[ 0 ].satisfied  = 1
+    ...
+    concurrent_info.concurrent_requests[ REQUETS_LAST_ID ].satisfied  = 1
+    
+    
+    concurrent_info.is_process_would_like_to_access[ 0 ] = 0
+    ...
+    concurrent_info.is_process_would_like_to_access[ PROCESSES_LAST_ID ] = 0
+}
+
+
+void concurrent_satisfied_update_request_single( concurrent_info, variable_id, request_index ){
+    if ( ( variable_id == concurrent_info.concurrent_requests[request_index].variable_id ) &&
+         ( 1 == concurrent_info.concurrent_requests[request_index].is_active             ) ){
+        
+        if ( 1 == concurrent_info.concurrent_requests[request_index].is_single_range )
+        {
+            if ( 1 == concurrent_info.concurrent_requests[request_index].satisfied )
+            {
+                if ( ( concurrent_info.concurrent_requests[request_index].bound_lower <=
+                       concurrent_info.concurrent_data[variable_id].value ) &&
+                     ( concurrent_info.concurrent_data[variable_id].value <=
+                       concurrent_info.concurrent_requests[request_index].bound_upper ) )
+                {
+                    concurrent_info.concurrent_requests[request_index].satisfied = 1
+                }
+                else
+                {
+                    concurrent_info.concurrent_requests[request_index].satisfied = 0
+                }
+                
+            }
+        }
+        else
+        {
+            if ( 1 == concurrent_info.concurrent_requests[request_index].satisfied )
+            {
+                if ( ( concurrent_info.concurrent_data[variable_id].value <=
+                       concurrent_info.concurrent_requests[request_index].bound_lower ) ||
+                     ( concurrent_info.concurrent_requests[request_index].bound_upper <=
+                       concurrent_info.concurrent_data[variable_id].value ) )
+                {
+                    concurrent_info.concurrent_requests[request_index].satisfied = 1
+                }
+                else
+                {
+                    concurrent_info.concurrent_requests[request_index].satisfied = 0
+                }
+            }
+        }
+    }
+    
+}
+
+
+void concurrent_satisfied_update_request_all( concurrent_info, variable_id ){
+    concurrent_satisfied_update_request_single( concurrent_info, variable_id, 0 )
+    ...
+    concurrent_satisfied_update_request_single( concurrent_info, variable_id, REQUETS_LAST_ID )
+}
+
+
+
+
+int concurrent_request_add( concurrent_info_type &concurrent_info, variable_id, request ){
+    concurrent_info.concurrent_requests[variable_id]             = request
+    concurrent_info.concurrent_requests[variable_id].satisfied   = 1
+    concurrent_info.concurrent_requests[variable_id].is_active   = 1
+    concurrent_info.concurrent_requests[variable_id].variable_id = variable_id
+
+
+    concurrent_satisfied_update_request_single( concurrent_info, variable_id, variable_id )
+
+
+    return variable_id
+}
+
+
+int concurrent_request_remove_request( concurrent_info, request_index ){
+    if ( 1 == concurrent_info.concurrent_requests[request_index].is_active ){
+        concurrent_info.concurrent_requests[request_index].is_active = 0
+    }
+
+
+    return concurrent_info.concurrent_requests[request_index].satisfied
+}
+
+
+int concurrent_is_satisfied( concurrent_info, request_index ){
+    return concurrent_info.concurrent_requests[request_index].satisfied
+}
+
+
+int concurrent_read( concurrent_info, variable_id ){
+    return concurrent_info.concurrent_data[ variable_id ].value
+}
+
+
+void concurrent_write( concurrent_info, variable_id, value ){
+    concurrent_info.concurrent_data[ variable_id ].value = value
+    
+    concurrent_satisfied_update_request_all( concurrent_info, variable_id )
+}
+
+
+void concurrent_signal_access(  concurrent_info, process_id, value ){
+    concurrent_info.is_process_would_like_to_access[ process_id ] = value
+}
+	\end{lstlisting}
+\chapter{  Software }\label{Appendix_2} 
+\section{  configurations.xsd}\label{Appendix_2_1} 
+\begin{lstlisting}[style=stylexml,language=XML]
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+
+<xs:element name="configurations">
+   <xs:complexType>
+    <xs:sequence>
+
+
+      <xs:element name="setting" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:attribute name="name"       type="xs:string"  use="required"/>
+          <xs:attribute name="value"      type="xs:string"  use="required"/>
+        </xs:complexType>
+      </xs:element>
+            
+      <xs:element name="variable" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:attribute name="name"                 type="xs:string"    use="required"/>
+          <xs:attribute name="value"                type="xs:string"    use="required" />
+          <xs:attribute name="min_value"            type="xs:string"    use="optional"/>
+          <xs:attribute name="max_value"            type="xs:string"    use="optional"/>
+          <xs:attribute name="is_exclusive_access"  type="xs:boolean"   use="optional"/>
+        </xs:complexType>
+      </xs:element>
+            
+      <xs:element name="parameter" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:attribute name="plp_name"             type="xs:string"    use="required"/>
+          <xs:attribute name="name"                 type="xs:string"    use="required"/>
+          <xs:attribute name="value"                type="xs:string"    use="required" />
+          <xs:attribute name="min_value"            type="xs:string"    use="optional"/>
+          <xs:attribute name="max_value"            type="xs:string"    use="optional"/>
+          <xs:attribute name="is_exclusive_access"  type="xs:boolean"   use="optional"/>
+        </xs:complexType>
+      </xs:element>
+
+
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+
+</xs:schema>
+	\end{lstlisting}
+\section{  control_graph.xsd}\label{Appendix_2_2} 
+\begin{lstlisting}[style=stylexml,language=XML]
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+
+
+
+  <xs:complexType name="conditions_type">
+    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+      <xs:choice minOccurs="0" maxOccurs="1">
+        <xs:element name="predicate_condition" type="predicate_type" />
+        <xs:element name="formula_condition" type="formula_condition_type" />
+        <xs:element name="not_condition" type="not_condition_type" />
+        <xs:element name="forall_condition" type="forall_condition_type" />
+        <xs:element name="exists_condition" type="exists_condition_type" />
+        <xs:element name="AND" type="and_or_condition_type" />
+        <xs:element name="OR" type="and_or_condition_type" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+
+
+  <xs:complexType name="and_or_condition_type">
+    <xs:sequence minOccurs="2" maxOccurs="unbounded">
+      <xs:choice minOccurs="1" maxOccurs="1">
+        <xs:element name="predicate_condition" type="predicate_type" />
+        <xs:element name="formula_condition" type="formula_condition_type" />
+        <xs:element name="not_condition" type="not_condition_type" />
+        <xs:element name="forall_condition" type="forall_condition_type" />
+        <xs:element name="exists_condition" type="exists_condition_type" />
+        <xs:element name="AND" type="and_or_condition_type" />
+        <xs:element name="OR" type="and_or_condition_type" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+
+
+  <xs:complexType name="predicate_type">
+    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="field" type="field_type" />
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string" use="required" />
+  </xs:complexType>
+
+
+  <xs:complexType name="formula_condition_type">
+    <xs:sequence minOccurs="1" maxOccurs="1">
+      <xs:element name="expression" type="simple_value_type" />
+      <xs:choice minOccurs="1" maxOccurs="1">
+        <xs:sequence minOccurs="1" maxOccurs="1">
+          <xs:element name="operator">
+            <xs:complexType>
+              <xs:attribute name="type" type="operator_type" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="expression" type="simple_value_type" />
+        </xs:sequence>
+        <xs:sequence minOccurs="1" maxOccurs="1">
+          <xs:element name="inside_range">
+            <xs:complexType>
+              <xs:sequence minOccurs="1" maxOccurs="1">
+                <xs:element name="range" type="range_type" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="key_description" type="xs:string" use="required" />
+  </xs:complexType>
+
+
+  <xs:complexType name="simple_value_type">
+    <xs:attribute name="value" type="xs:string" use="required" />
+  </xs:complexType>
+
+
+  <xs:simpleType name="operator_type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="=" />
+      <xs:enumeration value="!=" />
+      <xs:enumeration value="less" />
+      <xs:enumeration value="less_equal" />
+      <xs:enumeration value="greater" />
+      <xs:enumeration value="greater_equal" />
+    </xs:restriction>
+  </xs:simpleType>
+
+
+  <xs:complexType name="not_condition_type">
+    <xs:choice minOccurs="1" maxOccurs="1">
+      <xs:element name="predicate_condition" type="predicate_type" />
+      <xs:element name="forall_condition" type="forall_condition_type" />
+      <xs:element name="exists_condition" type="exists_condition_type" />
+      <xs:element name="AND" type="and_or_condition_type" />
+      <xs:element name="OR" type="and_or_condition_type" />
+    </xs:choice>
+  </xs:complexType>
+
+
+  <xs:complexType name="forall_condition_type">
+    <xs:sequence minOccurs="1" maxOccurs="1">
+      <xs:sequence minOccurs="1" maxOccurs="unbounded">
+        <xs:element name="param">
+          <xs:complexType>
+            <xs:attribute name="name" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:choice minOccurs="1" maxOccurs="1">
+        <xs:element name="predicate_condition" type="predicate_type" />
+        <xs:element name="formula_condition" type="formula_condition_type" />
+        <xs:element name="exists_condition" type="exists_condition_type" />
+        <xs:element name="not_condition" type="not_condition_type" />
+        <xs:element name="AND" type="and_or_condition_type" />
+        <xs:element name="OR" type="and_or_condition_type" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+
+
+  <xs:complexType name="exists_condition_type">
+    <xs:sequence minOccurs="1" maxOccurs="1">
+      <xs:sequence minOccurs="1" maxOccurs="unbounded">
+        <xs:element name="param">
+          <xs:complexType>
+            <xs:attribute name="name" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:choice minOccurs="1" maxOccurs="1">
+        <xs:element name="predicate_condition" type="predicate_type" />
+        <xs:element name="formula_condition" type="formula_condition_type" />
+        <xs:element name="forall_condition" type="forall_condition_type" />
+        <xs:element name="not_condition" type="not_condition_type" />
+        <xs:element name="AND" type="and_or_condition_type" />
+        <xs:element name="OR" type="and_or_condition_type" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+
+
+  <xs:complexType name="field_type">
+    <xs:attribute name="value" type="xs:string" use="required" />
+  </xs:complexType>
+
+
+  <xs:complexType name="range_type">
+    <xs:attribute name="min_value" type="xs:string" use="required" />
+    <xs:attribute name="min_inclusive" type="xs:boolean" use="required" />
+    <xs:attribute name="max_value" type="xs:string" use="required" />
+    <xs:attribute name="max_inclusive" type="xs:boolean" use="required" />
+  </xs:complexType>
+
+
+
+
+
+
+
+
+
+
+<xs:simpleType name="type_start_policy">
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="all_predecessor_done" />
+    <xs:enumeration value="any_predecessor_done" />
+  </xs:restriction>
+</xs:simpleType>
+  
+<xs:element name="control_graph">
+  <xs:complexType>
+    <xs:sequence>
+      
+      <xs:element name="root">
+        <xs:complexType>
+          <xs:attribute name="root_name" type="xs:string"   use="required"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        
+        <xs:element name="node_probability">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="probability_for_successor_node" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="update" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="formula_condition" type="formula_condition_type" minOccurs="1" maxOccurs="1" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="probability"  type="xs:string"   use="required"/>
+                  <xs:attribute name="node_name"    type="xs:string"   use="required"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="node_name"      type="xs:ID"                use="required"/>
+            <xs:attribute name="start_policy"   type="type_start_policy"    use="required"/>
+            <xs:attribute name="wait_time"      type="xs:string"            use="optional"/>
+          </xs:complexType>
+        </xs:element>
+                
+        <xs:element name="node_concurrent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="update" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="formula_condition" type="formula_condition_type" minOccurs="1" maxOccurs="1" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="run_node" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="node_name"   type="xs:string"   use="required"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="node_name"      type="xs:ID"                use="required"/>
+            <xs:attribute name="start_policy"   type="type_start_policy"    use="required"/>
+            <xs:attribute name="wait_time"      type="xs:string"            use="optional"/>
+          </xs:complexType>
+        </xs:element>
+
+
+        <xs:element name="node_sequential">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="run_plp" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="update" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="formula_condition" type="formula_condition_type" minOccurs="1" maxOccurs="1" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="plp_name"   type="xs:string"   use="required"/>
+                  <xs:attribute name="wait_time"  type="xs:string"   use="optional"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="node_name"      type="xs:ID"                use="required"/>
+            <xs:attribute name="start_policy"   type="type_start_policy"    use="required"/>
+            <xs:attribute name="next_node_name" type="xs:string"            use="optional"/>
+          </xs:complexType>
+        </xs:element>
+
+
+        <xs:element name="node_condition">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="run_node" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="preconditions" type="conditions_type" minOccurs="1" maxOccurs="1" />
+                    <xs:element name="update" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="formula_condition" type="formula_condition_type" minOccurs="1" maxOccurs="1" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="node_name"    type="xs:string"   use="required"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="node_name"             type="xs:ID"                use="required"/>
+            <xs:attribute name="start_policy"   type="type_start_policy"    use="required"/>
+            <xs:attribute name="wait_time"      type="xs:string"            use="optional"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+
+</xs:schema>
+	\end{lstlisting}
+\chapter{  Example 2}\label{Appendix_3} 
+\section{  control_graph.xml}\label{Appendix_3_1} 
+\begin{lstlisting}[style=stylexml,language=XML]
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<control_graph
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="control_graph.xsd">
+
+
+<root root_name="node_sequential_start"/>
+
+
+<node_sequential   node_name="node_sequential_start" start_policy="any_predecessor_done" next_node_name="node_concurrent_hold_and_move">
+    <run_plp plp_name="achieve_move_to">
+        <update>
+          <formula_condition key_description="update variables">
+            <expression value="_achieve_move_to_destination" />
+            <operator type="="/>
+            <expression value="at_a_key" />
+          </formula_condition>
+        </update>
+    </run_plp>
+    <run_plp plp_name="achieve_key_take">
+    </run_plp>
+</node_sequential>
+
+
+<node_concurrent   node_name="node_concurrent_hold_and_move" start_policy="any_predecessor_done">
+    <run_node node_name="node_sequential_key_holding"/>
+    <run_node node_name="node_sequential_move_to_door"/>
+</node_concurrent>
+
+
+<node_sequential   node_name="node_sequential_key_holding" start_policy="any_predecessor_done" next_node_name="">
+    <run_plp plp_name="maintain_key_hold">
+    </run_plp>
+</node_sequential>
+
+
+<node_sequential   node_name="node_sequential_move_to_door" start_policy="any_predecessor_done" next_node_name="node_condition_decide_after_is_open">
+    <run_plp plp_name="achieve_move_to">
+        <update>
+          <formula_condition key_description="update variables">
+            <expression value="_achieve_move_to_destination" />
+            <operator type="="/>
+            <expression value="at_a_doorway" />
+          </formula_condition>
+        </update>
+    </run_plp>
+    <run_plp plp_name="observe_is_door_open">
+    </run_plp>
+</node_sequential>
+
+
+<node_condition   node_name="node_condition_decide_after_is_open" start_policy="any_predecessor_done">
+    <run_node node_name="node_sequential_move_to_target">
+        <preconditions>
+            <formula_condition key_description="true == door_is_open">
+              <expression value="_observe_is_door_open_door_is_open" />
+              <operator type="="/>
+              <expression value="TRUE" />
+            </formula_condition>
+        </preconditions>
+    </run_node>
+    <run_node node_name="node_sequential_is_door_locked">
+        <preconditions>
+            <formula_condition key_description="false == door_is_open">
+              <expression value="_observe_is_door_open_door_is_open" />
+              <operator type="="/>
+              <expression value="FALSE" />
+            </formula_condition>
+        </preconditions>
+    </run_node>
+</node_condition>
+
+
+<node_sequential   node_name="node_sequential_is_door_locked" start_policy="any_predecessor_done" next_node_name="node_condition_decide_after_is_locked">
+    <run_plp plp_name="observe_is_door_locked">
+    </run_plp>
+</node_sequential>
+
+
+<node_condition   node_name="node_condition_decide_after_is_locked" start_policy="any_predecessor_done">
+    <run_node node_name="node_sequential_door_unlock">
+        <preconditions>
+            <formula_condition key_description="true == door_is_locked">
+              <expression value="_observe_is_door_locked_door_is_locked" />
+              <operator type="="/>
+              <expression value="TRUE" />
+            </formula_condition>
+        </preconditions>
+    </run_node>
+    <run_node node_name="node_sequential_door_open">
+        <preconditions>
+            <formula_condition key_description="false == door_is_locked">
+              <expression value="_observe_is_door_locked_door_is_locked" />
+              <operator type="="/>
+              <expression value="FALSE" />
+            </formula_condition>
+        </preconditions>
+    </run_node>
+</node_condition>
+
+
+<node_sequential   node_name="node_sequential_door_unlock" start_policy="any_predecessor_done" next_node_name="node_sequential_door_open">
+    <run_plp plp_name="achieve_door_unlock">
+    </run_plp>
+</node_sequential>
+
+
+<node_sequential   node_name="node_sequential_door_open" start_policy="any_predecessor_done" next_node_name="node_sequential_move_to_target">
+    <run_plp plp_name="achieve_door_open">
+    </run_plp>
+</node_sequential>
+
+
+
+
+<node_sequential   node_name="node_sequential_move_to_target" start_policy="any_predecessor_done" next_node_name="">
+    <run_plp plp_name="achieve_move_to">
+        <update>
+          <formula_condition key_description="move through doorway">
+            <expression value="_achieve_move_to_destination" />
+            <operator type="="/>
+            <expression value="at_b_doorway" />
+          </formula_condition>
+        </update>
+    </run_plp>
+    <run_plp plp_name="achieve_move_to">
+        <update>
+          <formula_condition key_description="move through doorway">
+            <expression value="_achieve_move_to_destination" />
+            <operator type="="/>
+            <expression value="at_b_target" />
+          </formula_condition>
+        </update>
+    </run_plp>
+</node_sequential>
+
+
+</control_graph>
+	\end{lstlisting}
+\section{  configurations.xml}\label{Appendix_3_2} 
+\begin{lstlisting}[style=stylexml,language=XML]
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<configurations
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="configurations.xsd">
+
+
+<setting   name="precision_multiplier_for_numbers_and_time"         value="100"/>
+<setting   name="observe_variable_samples"                          value="10"/>
+<setting   name="run_time_amount_of_intervals_for_discretization"   value="5"/>
+
+
+<variable  name="robot_location"                                    value="at_a"        is_exclusive_access="true"  />
+<variable  name="key_location"                                      value="at_a_key"    is_exclusive_access="true"  />
+<variable  name="holding_key"                                       value="FALSE"       is_exclusive_access="true"  />
+<variable  name="key_dropped"                                       value="FALSE"       is_exclusive_access="true"  />
+<variable  name="key_can_drop"                                      value="FALSE"       is_exclusive_access="true"  />
+<variable  name="door_was_opened"                                   value="FALSE"       is_exclusive_access="true"  />
+<variable  name="door_was_unlocked"                                 value="FALSE"       is_exclusive_access="true"  />
+
+
+<parameter plp_name="observe_is_door_locked" name="door_is_locked"  min_value="TRUE"   max_value="FALSE"  />
+<parameter plp_name="observe_is_door_open"   name="door_is_open"    min_value="TRUE"   max_value="FALSE"  />
+
+
+
+
+</configurations>
+	\end{lstlisting}
+\section{  achieve_door_open.xml}\label{Appendix_3_3} 
+\begin{lstlisting}[style=stylexml,language=XML]
+<?xml version="1.0" encoding="utf-8"?>
+<plps:achieve_plp name="achieve_door_open" version="1.0" glue_file_location=""
+        xmlns:plps="PLP-schemas"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="PLP-schemas AchievePLP_schema.xsd">
+
+
+  <parameters>
+    <execution_parameters>
+    </execution_parameters>
+
+
+    <input_parameters>
+    </input_parameters>
+
+
+    <output_parameters>
+    </output_parameters>
+
+
+    <non_observable>
+    </non_observable>
+    
+  </parameters>
+
+
+  <variables>
+    <var name="robot_location"  type="integer"/>
+    <var name="door_was_opened" type="boolean"/>
+  </variables>
+
+
+  <constants>
+  </constants>
+
+
+  <required_resources>
+  </required_resources>
+
+
+  <preconditions>
+    <AND>
+        <OR>
+            <formula_condition key_description="near the door at a">
+              <expression value="robot_location"/>
+              <operator type="="/>
+              <expression value="at_a_doorway"/>
+            </formula_condition>
+            
+            <formula_condition key_description="near the door at b">
+              <expression value="robot_location"/>
+              <operator type="="/>
+              <expression value="at_b_doorway"/>
+            </formula_condition>
+        </OR>
+    
+        <OR>
+            <formula_condition key_description="door_was_unlocked">
+              <expression value="door_was_unlocked"/>
+              <operator type="="/>
+              <expression value="TRUE"/>
+            </formula_condition>
+            
+            <formula_condition key_description="observed that door is unlocked">
+              <expression value="_observe_is_door_locked_door_is_locked"/>
+              <operator type="="/>
+              <expression value="FALSE"/>
+            </formula_condition>
+        </OR>
+    </AND>
+    
+  </preconditions>
+
+
+  <concurrency_conditions>
+  </concurrency_conditions>
+
+
+  <concurrent_modules>
+  </concurrent_modules>
+
+
+  <side_effects>
+  </side_effects>
+
+
+  <progress_measures>
+  </progress_measures>
+
+
+  <achievement_goal>
+    <formula_condition key_description="door_was_opened">
+      <expression value="door_was_opened"/>
+      <operator type="="/>
+      <expression value="TRUE"/>
+    </formula_condition>
+  </achievement_goal>
+
+
+  <success_probability>
+  </success_probability>
+
+
+  <runtime_given_success>
+    <distribution>
+      <uniform>
+        <lower_bound value="1" />
+        <upper_bound value="2" />
+      </uniform>
+    </distribution>
+  </runtime_given_success>
+
+
+  <failure_modes>
+  </failure_modes>
+  
+  <runtime_given_failure>
+  </runtime_given_failure>
+  
+</plps:achieve_plp>
+	\end{lstlisting}
+\section{  achieve_door_unlock.xml}\label{Appendix_3_4} 
+\begin{lstlisting}[style=stylexml,language=XML]
+<?xml version="1.0" encoding="utf-8"?>
+<plps:achieve_plp name="achieve_door_unlock" version="1.0" glue_file_location=""
+        xmlns:plps="PLP-schemas"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="PLP-schemas AchievePLP_schema.xsd">
+
+
+  <parameters>
+    <execution_parameters>
+    </execution_parameters>
+
+
+    <input_parameters>
+    </input_parameters>
+
+
+    <output_parameters>
+    </output_parameters>
+
+
+    <non_observable>
+    </non_observable>
+    
+  </parameters>
+
+
+  <variables>
+    <var name="robot_location"      type="integer"/>
+    <var name="door_was_unlocked"   type="boolean"/>
+  </variables>
+
+
+  <constants>
+  </constants>
+
+
+  <required_resources>
+  </required_resources>
+
+
+  <preconditions>
+    <OR>
+        <formula_condition key_description="near the door at a">
+          <expression value="robot_location"/>
+          <operator type="="/>
+          <expression value="at_a_doorway"/>
+        </formula_condition>
+        
+        <formula_condition key_description="near the door at b">
+          <expression value="robot_location"/>
+          <operator type="="/>
+          <expression value="at_b_doorway"/>
+        </formula_condition>
+    </OR>
+  </preconditions>
+
+
+  <concurrency_conditions>
+    <formula_condition key_description="holding_key">
+      <expression value="holding_key" />
+      <operator type="=" />
+      <expression value="TRUE" />
+    </formula_condition>
+  </concurrency_conditions>
+
+
+  <concurrent_modules>
+    <module name="maintain_key_hold" concurrency_type="parallel" />
+  </concurrent_modules>
+
+
+  <side_effects>
+  </side_effects>
+
+
+  <progress_measures>
+  </progress_measures>
+
+
+  <achievement_goal>
+    <formula_condition key_description="door_was_unlocked">
+      <expression value="door_was_unlocked"/>
+      <operator type="="/>
+      <expression value="TRUE"/>
+    </formula_condition>
+  </achievement_goal>
+
+
+  <success_probability>
+  </success_probability>
+
+
+  <runtime_given_success>
+    <distribution>
+      <uniform>
+        <lower_bound value="1" />
+        <upper_bound value="2" />
+      </uniform>
+    </distribution>
+  </runtime_given_success>
+
+
+  <failure_modes>
+  </failure_modes>
+  
+  <runtime_given_failure>
+  </runtime_given_failure>
+  
+</plps:achieve_plp>
+	\end{lstlisting}
+\section{  achieve_key_take.xml}\label{Appendix_3_5} 
+\begin{lstlisting}[style=stylexml,language=XML]
+<?xml version="1.0" encoding="utf-8"?>
+<plps:achieve_plp name="achieve_key_take" version="1.0" glue_file_location=""
+        xmlns:plps="PLP-schemas"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="PLP-schemas AchievePLP_schema.xsd">
+
+
+  <parameters>
+    <execution_parameters>
+    </execution_parameters>
+
+
+    <input_parameters>
+    </input_parameters>
+
+
+    <output_parameters>
+    </output_parameters>
+
+
+    <non_observable>
+    </non_observable>
+    
+  </parameters>
+
+
+  <variables>
+    <var name="holding_key"     type="boolean"/>
+    <var name="key_location"    type="integer"/>
+    <var name="robot_location"  type="integer"/>
+  </variables>
+
+
+  <constants>
+  </constants>
+
+
+  <required_resources>
+  </required_resources>
+
+
+  <preconditions>
+    <formula_condition key_description="Robot at the location of the key">
+      <expression value="key_location"/>
+      <operator type="="/>
+      <expression value="robot_location"/>
+    </formula_condition>
+  </preconditions>
+
+
+  <concurrency_conditions>
+  </concurrency_conditions>
+
+
+  <concurrent_modules>
+  </concurrent_modules>
+
+
+  <side_effects>
+  </side_effects>
+
+
+  <progress_measures>
+  </progress_measures>
+
+
+  <achievement_goal>
+    <AND>
+        <formula_condition key_description="Robot holding the key">
+          <expression value="holding_key"/>
+          <operator type="="/>
+          <expression value="TRUE"/>
+        </formula_condition>
+        <formula_condition key_description="Robot holding the key">
+          <expression value="key_location"/>
+          <operator type="="/>
+          <expression value="at_unknown"/>
+        </formula_condition>
+    </AND>
+  </achievement_goal>
+
+
+  <success_probability>
+  </success_probability>
+
+
+  <runtime_given_success>
+    <distribution>
+      <uniform>
+        <lower_bound value="1" />
+        <upper_bound value="2" />
+      </uniform>
+    </distribution>
+  </runtime_given_success>
+
+
+  <failure_modes>
+  </failure_modes>
+  
+  <runtime_given_failure>
+  </runtime_given_failure>
+  
+</plps:achieve_plp>
+	\end{lstlisting}
+\section{  achieve_move_to.xml}\label{Appendix_3_6} 
+\begin{lstlisting}[style=stylexml,language=XML]
+<?xml version="1.0" encoding="utf-8"?>
+<plps:achieve_plp name="achieve_move_to" version="1.0" glue_file_location=""
+        xmlns:plps="PLP-schemas"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="PLP-schemas AchievePLP_schema.xsd">
+
+
+  <parameters>
+    <execution_parameters>
+    </execution_parameters>
+
+
+    <input_parameters>
+      <param name="destination" />
+    </input_parameters>
+
+
+    <output_parameters>
+    </output_parameters>
+
+
+    <non_observable>
+    </non_observable>
+    
+  </parameters>
+
+
+  <variables>
+    <var name="robot_location"  type="integer"/>
+  </variables>
+
+
+  <constants>
+    <constant name="at_unknown"         value="0"/>
+    <constant name="at_a"               value="1"/>
+    <constant name="at_a_key"           value="2"/>
+    <constant name="at_a_doorway"       value="3"/>
+    <constant name="at_b_doorway"       value="4"/>
+    <constant name="at_b_target"        value="5"/>
+  </constants>
+
+
+  <required_resources>
+  </required_resources>
+
+
+  <preconditions>
+  </preconditions>
+
+
+  <concurrency_conditions>
+  </concurrency_conditions>
+
+
+  <concurrent_modules>
+  </concurrent_modules>
+
+
+  <side_effects>
+  </side_effects>
+
+
+  <progress_measures>
+  </progress_measures>
+
+
+  <achievement_goal>
+    <formula_condition key_description="at_destination">
+      <expression value="robot_location"/>
+      <operator type="="/>
+      <expression value="destination"/>
+    </formula_condition>
+  </achievement_goal>
+
+
+  <success_probability>
+    <conditional_probability>
+      <AND>
+        <OR>
+          <formula_condition key_description="">
+            <expression value="robot_location"/>
+            <operator type="="/>
+            <expression value="at_a"/>
+          </formula_condition>
+          <formula_condition key_description="">
+            <expression value="robot_location"/>
+            <operator type="="/>
+            <expression value="at_a_key"/>
+          </formula_condition>
+          <formula_condition key_description="">
+            <expression value="robot_location"/>
+            <operator type="="/>
+            <expression value="at_a_doorway"/>
+          </formula_condition>
+        </OR>
+        <OR>
+          <formula_condition key_description="">
+            <expression value="destination"/>
+            <operator type="="/>
+            <expression value="at_a"/>
+          </formula_condition>
+          <formula_condition key_description="">
+            <expression value="destination"/>
+            <operator type="="/>
+            <expression value="at_a_key"/>
+          </formula_condition>
+          <formula_condition key_description="">
+            <expression value="destination"/>
+            <operator type="="/>
+            <expression value="at_a_doorway"/>
+          </formula_condition>
+        </OR>
+      </AND>
+      <probability value="1" />
+    </conditional_probability>
+    
+    <conditional_probability>
+      <AND>
+        <OR>
+          <formula_condition key_description="">
+            <expression value="robot_location"/>
+            <operator type="="/>
+            <expression value="at_a_doorway"/>
+          </formula_condition>
+          <formula_condition key_description="">
+            <expression value="robot_location"/>
+            <operator type="="/>
+            <expression value="at_b_doorway"/>
+          </formula_condition>
+        </OR>
+        <OR>
+          <formula_condition key_description="">
+            <expression value="destination"/>
+            <operator type="="/>
+            <expression value="at_a_doorway"/>
+          </formula_condition>
+          <formula_condition key_description="">
+            <expression value="destination"/>
+            <operator type="="/>
+            <expression value="at_b_doorway"/>
+          </formula_condition>
+        </OR>
+        <OR>
+            <formula_condition key_description="door_was_opened">
+              <expression value="door_was_opened"/>
+              <operator type="="/>
+              <expression value="TRUE"/>
+            </formula_condition>
+            
+            <formula_condition key_description="observed that door is open">
+              <expression value="_observe_is_door_open_door_is_open"/>
+              <operator type="="/>
+              <expression value="TRUE"/>
+            </formula_condition>
+        </OR>
+      </AND>
+      <probability value="1" />
+    </conditional_probability>
+    
+    <conditional_probability>
+      <AND>
+        <OR>
+          <formula_condition key_description="">
+            <expression value="robot_location"/>
+            <operator type="="/>
+            <expression value="at_b_doorway"/>
+          </formula_condition>
+          <formula_condition key_description="">
+            <expression value="robot_location"/>
+            <operator type="="/>
+            <expression value="at_b_target"/>
+          </formula_condition>
+        </OR>
+        <OR>
+          <formula_condition key_description="">
+            <expression value="destination"/>
+            <operator type="="/>
+            <expression value="at_b_doorway"/>
+          </formula_condition>
+          <formula_condition key_description="">
+            <expression value="destination"/>
+            <operator type="="/>
+            <expression value="at_b_target"/>
+          </formula_condition>
+        </OR>
+      </AND>
+      <probability value="1" />
+    </conditional_probability>
+  </success_probability>
+
+
+  <runtime_given_success>
+    <distribution>
+      <uniform>
+        <lower_bound value="4" />
+        <upper_bound value="6" />
+      </uniform>
+    </distribution>
+  </runtime_given_success>
+
+
+  <failure_modes>
+  </failure_modes>
+  
+  <runtime_given_failure>
+  </runtime_given_failure>
+  
+</plps:achieve_plp>
+	\end{lstlisting}
+\section{  maintain_key_hold.xml}\label{Appendix_3_7} 
+\begin{lstlisting}[style=stylexml,language=XML]
+<?xml version="1.1" encoding="utf-8"?>
+<plps:maintain_plp name="maintain_key_hold" version="1.0" glue_file_location=""
+  xmlns:plps="PLP-schemas"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="PLP-schemas MaintainPLP_schema.xsd">
+  
+  <parameters>
+  </parameters>
+
+
+  <variables>
+    <var name="holding_key"     type="boolean"/>
+    <var name="key_dropped"     type="boolean"/>
+    <var name="key_can_drop"    type="boolean"/>
+  </variables>
+
+
+  <constants>
+  </constants>
+
+
+  <required_resources>
+  </required_resources>
+
+
+  <preconditions>
+    <formula_condition key_description="holding_key">
+      <expression value="holding_key" />
+      <operator type="=" />
+      <expression value="TRUE" />
+    </formula_condition>
+  </preconditions>
+
+
+  <concurrency_conditions>
+  </concurrency_conditions>
+
+
+  <concurrent_modules>
+  </concurrent_modules>
+
+
+  <side_effects>
+  </side_effects>
+
+
+  <progress_measures>
+  </progress_measures>
+
+
+  <maintained_condition>
+    <formula_condition key_description="holding_key">
+      <expression value="holding_key" />
+      <operator type="=" />
+      <expression value="TRUE" />
+    </formula_condition>
+    
+    <initially_true />
+  </maintained_condition>
+
+
+  <success_termination_condition>
+    <formula_condition key_description="key_can_drop">
+      <expression value="key_can_drop" />
+      <operator type="=" />
+      <expression value="TRUE" />
+    </formula_condition>
+  </success_termination_condition>
+
+
+  <failure_termination_conditions>
+    <formula_condition key_description="key_dropped">
+      <expression value="key_dropped" />
+      <operator type="=" />
+      <expression value="TRUE" />
+    </formula_condition>
+  </failure_termination_conditions>
+
+
+  <success_probability>
+  </success_probability>
+
+
+  <runtime_given_success>
+    <distribution>
+        <!--exp>
+            <lambda-rate  value="0.025"/>
+        </exp-->
+        <uniform>
+        <lower_bound value="25.01" />
+        <upper_bound value="25.01" />
+      </uniform>
+    </distribution>
+  </runtime_given_success>
+    
+  <failure_modes>
+  </failure_modes>
+
+
+  <runtime_given_failure>
+  </runtime_given_failure>
+  
+</plps:maintain_plp>
+
+
+	\end{lstlisting}
+\section{  observe_is_door_locked.xml}\label{Appendix_3_8} 
+\begin{lstlisting}[style=stylexml,language=XML]
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<plps:observe_plp name="observe_is_door_locked" version="1.0" glue_file_location=""
+        xmlns:plps="PLP-schemas"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="PLP-schemas ObservePLP_schema.xsd">
+
+
+  <parameters>
+    <execution_parameters>
+    </execution_parameters>
+
+
+    <input_parameters>
+    </input_parameters>
+
+
+    <output_parameters>
+      <param name="door_is_locked"/>
+    </output_parameters>
+
+
+    <non_observable>
+    </non_observable>
+  </parameters>
+
+
+  <variables>
+  </variables>
+
+
+  <constants>
+  </constants>
+
+
+  <required_resources>
+  </required_resources>
+
+
+  <preconditions>
+    <OR>
+        <formula_condition key_description="near the door at a">
+          <expression value="robot_location"/>
+          <operator type="="/>
+          <expression value="at_a_doorway"/>
+        </formula_condition>
+        
+        <formula_condition key_description="near the door at b">
+          <expression value="robot_location"/>
+          <operator type="="/>
+          <expression value="at_b_doorway"/>
+        </formula_condition>
+    </OR>
+  </preconditions>
+
+
+  <concurrency_conditions>
+  </concurrency_conditions>
+
+
+  <concurrent_modules>
+  </concurrent_modules>
+
+
+  <side_effects>
+  </side_effects>
+
+
+  <progress_measures>
+  </progress_measures>
+  
+  <observation_goal_parameter>
+    <param name="door_is_locked"/>
+  </observation_goal_parameter>
+  
+  <failure_to_observe_probability>
+  </failure_to_observe_probability>
+  
+  <failure_termination_condition>
+  </failure_termination_condition>
+  
+  <correct_param_observation_probability>
+    <probability_given_observed_value>
+      <probability value="1" />
+    </probability_given_observed_value>
+  </correct_param_observation_probability>
+  
+  <runtime_given_success>
+    <distribution>
+      <uniform>
+        <lower_bound value="3" />
+        <upper_bound value="7" />
+      </uniform>
+    </distribution>
+  </runtime_given_success>
+
+
+  <runtime_given_failure>
+  </runtime_given_failure>
+ 
+ 
+</plps:observe_plp>
+	\end{lstlisting}
+\section{  observe_is_door_open.xml}\label{Appendix_3_9} 
+\begin{lstlisting}[style=stylexml,language=XML]
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<plps:observe_plp name="observe_is_door_open" version="1.0" glue_file_location=""
+        xmlns:plps="PLP-schemas"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="PLP-schemas ObservePLP_schema.xsd">
+
+
+  <parameters>
+    <execution_parameters>
+    </execution_parameters>
+
+
+    <input_parameters>
+    </input_parameters>
+
+
+    <output_parameters>
+      <param name="door_is_open"/>
+    </output_parameters>
+
+
+    <non_observable>
+    </non_observable>
+  </parameters>
+
+
+  <variables>
+  </variables>
+
+
+  <constants>
+  </constants>
+
+
+  <required_resources>
+  </required_resources>
+
+
+  <preconditions>
+  </preconditions>
+
+
+  <concurrency_conditions>
+  </concurrency_conditions>
+
+
+  <concurrent_modules>
+  </concurrent_modules>
+
+
+  <side_effects>
+  </side_effects>
+
+
+  <progress_measures>
+  </progress_measures>
+  
+  <observation_goal_parameter>
+    <param name="door_is_open"/>
+  </observation_goal_parameter>
+  
+  <failure_to_observe_probability>
+  </failure_to_observe_probability>
+  
+  <failure_termination_condition>
+  </failure_termination_condition>
+  
+  <correct_param_observation_probability>
+    <probability_given_observed_value>
+      <probability value="1" />
+    </probability_given_observed_value>
+  </correct_param_observation_probability>
+  
+  <runtime_given_success>
+    <distribution>
+      <uniform>
+        <lower_bound value="3" />
+        <upper_bound value="10" />
+      </uniform>
+    </distribution>
+  </runtime_given_success>
+
+
+  <runtime_given_failure>
+  </runtime_given_failure>
+ 
+ 
+</plps:observe_plp>
+	\end{lstlisting}

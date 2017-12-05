@@ -1,0 +1,802 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   x="0px"
+   y="0px"
+   width="246.26175"
+   height="626.5"
+   viewBox="0 0 246.26175 626.5"
+   id="svg3722"
+   sodipodi:docname="nodeConcurrentAnd.svg"
+   inkscape:version="0.92.1 r15371"
+   inkscape:export-filename="/home/alexds9/Thesis/ThesisToLatex/ThesisToLatex/Figures/nodeConcurrentAnd.png"
+   inkscape:export-xdpi="400"
+   inkscape:export-ydpi="400">
+  <metadata
+     id="metadata3728">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs3726" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1535"
+     inkscape:window-height="876"
+     id="namedview3724"
+     showgrid="false"
+     fit-margin-left="5"
+     fit-margin-top="5"
+     fit-margin-right="5"
+     fit-margin-bottom="5"
+     inkscape:zoom="0.76375404"
+     inkscape:cx="-211.4906"
+     inkscape:cy="275.43919"
+     inkscape:window-x="65"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg3722" />
+  <desc
+     id="desc3432">Creator: FreeHEP Graphics2D Driver Producer: org.freehep.graphicsio.svg.SVGGraphics2D Revision Source:  Date: Monday, October 2, 2017 6:07:52 PM IDT</desc>
+  <g
+     stroke-miterlimit="10"
+     id="g3720"
+     style="stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0"
+     transform="translate(5,5)">
+    <g
+       id="g3436"
+       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none">
+      <path
+         d="M 0,0 Z"
+         id="path3434"
+         inkscape:connector-curvature="0" />
+    </g>
+    <!-- drawing style -->
+    <g
+       transform="translate(183,808)"
+       id="g3442">
+      <g
+         transform="translate(-153,-370)"
+         id="g3440">
+        <text
+           font-style="normal"
+           font-weight="normal"
+           font-size="14"
+           x="0"
+           y="0"
+           id="text3438"
+           style="font-style:normal;font-weight:normal;font-size:14px;font-family:Helvetica;fill:#42a0a8;fill-opacity:1;stroke:none">try_to_run_successor[1]!</text>
+      </g>
+      <!-- transform -->
+    </g>
+    <!-- transform -->
+    <g
+       transform="translate(183,808)"
+       id="g3448">
+      <g
+         transform="translate(-153,-234)"
+         id="g3446">
+        <text
+           font-style="normal"
+           font-weight="normal"
+           font-size="14"
+           x="0"
+           y="0"
+           id="text3444"
+           style="font-style:normal;font-weight:normal;font-size:14px;font-family:Helvetica;fill:#42a0a8;fill-opacity:1;stroke:none">try_to_run_successor[k]!</text>
+      </g>
+      <!-- transform -->
+    </g>
+    <!-- transform -->
+    <g
+       transform="translate(183,808)"
+       id="g3454">
+      <g
+         transform="translate(-158,-692)"
+         id="g3452">
+        <text
+           font-style="normal"
+           font-weight="normal"
+           font-size="14"
+           x="0"
+           y="0"
+           id="text3450"
+           style="font-style:normal;font-weight:normal;font-size:14px;font-family:Helvetica;fill:#42a0a8;fill-opacity:1;stroke:none">try_to_run?</text>
+      </g>
+      <!-- transform -->
+    </g>
+    <!-- transform -->
+    <g
+       transform="translate(183,808)"
+       id="g3460">
+      <g
+         transform="translate(-162,-480)"
+         id="g3458">
+        <text
+           font-style="normal"
+           font-weight="normal"
+           font-size="14"
+           x="0"
+           y="0"
+           id="text3456"
+           style="font-style:normal;font-weight:normal;font-size:14px;font-family:Helvetica;fill:#4242a8;fill-opacity:1;stroke:none">successor_can_run[1] = true,</text>
+      </g>
+      <!-- transform -->
+    </g>
+    <!-- transform -->
+    <g
+       transform="translate(183,808)"
+       id="g3466">
+      <g
+         transform="translate(-162,-463)"
+         id="g3464">
+        <text
+           font-style="normal"
+           font-weight="normal"
+           font-size="14"
+           x="0"
+           y="0"
+           id="text3462"
+           style="font-style:normal;font-weight:normal;font-size:14px;font-family:Helvetica;fill:#4242a8;fill-opacity:1;stroke:none">// ...</text>
+      </g>
+      <!-- transform -->
+    </g>
+    <!-- transform -->
+    <g
+       transform="translate(183,808)"
+       id="g3472">
+      <g
+         transform="translate(-162,-446)"
+         id="g3470">
+        <text
+           font-style="normal"
+           font-weight="normal"
+           font-size="14"
+           x="0"
+           y="0"
+           id="text3468"
+           style="font-style:normal;font-weight:normal;font-size:14px;font-family:Helvetica;fill:#4242a8;fill-opacity:1;stroke:none">successor_can_run[k] = true</text>
+      </g>
+      <!-- transform -->
+    </g>
+    <!-- transform -->
+    <g
+       transform="translate(183,808)"
+       id="g3478">
+      <g
+         transform="translate(-158,-658)"
+         id="g3476">
+        <text
+           font-style="normal"
+           font-weight="normal"
+           font-size="14"
+           x="0"
+           y="0"
+           id="text3474"
+           style="font-style:normal;font-weight:normal;font-size:14px;font-family:Helvetica;fill:#4242a8;fill-opacity:1;stroke:none">local_time = 0</text>
+      </g>
+      <!-- transform -->
+    </g>
+    <!-- transform -->
+    <g
+       transform="translate(183,808)"
+       id="g3484">
+      <g
+         transform="translate(-153,-607)"
+         id="g3482">
+        <text
+           font-style="normal"
+           font-weight="normal"
+           font-size="14"
+           x="0"
+           y="0"
+           id="text3480"
+           style="font-style:normal;font-weight:normal;font-size:14px;font-family:Helvetica;fill:#a742a8;fill-opacity:1;stroke:none">local_time &lt;= wait_time</text>
+      </g>
+      <!-- transform -->
+    </g>
+    <!-- transform -->
+    <g
+       transform="translate(183,808)"
+       id="g3490">
+      <g
+         id="g3488"
+         style="fill:#a5afcd;fill-opacity:1;fill-rule:nonzero;stroke:none">
+        <path
+           d="m -158,-510 c 0,6.62742 -5.37258,12 -12,12 -6.62742,0 -12,-5.37258 -12,-12 0,-6.62742 5.37258,-12 12,-12 6.62742,0 12,5.37258 12,12 z"
+           id="path3486"
+           inkscape:connector-curvature="0" />
+      </g>
+      <!-- drawing style -->
+    </g>
+    <!-- transform -->
+    <g
+       transform="translate(183,808)"
+       id="g3496">
+      <g
+         id="g3494"
+         style="fill:none;stroke:#000000;stroke-opacity:1">
+        <path
+           d="m -158,-510 c 0,6.62742 -5.37258,12 -12,12 -6.62742,0 -12,-5.37258 -12,-12 0,-6.62742 5.37258,-12 12,-12 6.62742,0 12,5.37258 12,12 z"
+           id="path3492"
+           inkscape:connector-curvature="0" />
+      </g>
+      <!-- drawing style -->
+    </g>
+    <!-- transform -->
+    <g
+       transform="translate(183,808)"
+       id="g3502">
+      <g
+         id="g3500"
+         style="fill:none;stroke:#000000;stroke-opacity:1">
+        <path
+           d="m -174.33013,-512.5 c -1.21323,2.10138 -0.74259,4.77052 1.11619,6.33022 1.85878,1.55971 4.5691,1.55971 6.42788,0 1.85878,-1.5597 2.32942,-4.22884 1.11619,-6.33022"
+           id="path3498"
+           inkscape:connector-curvature="0" />
+      </g>
+      <!-- drawing style -->
+    </g>
+    <!-- transform -->
+    <g
+       transform="translate(183,808)"
+       id="g3508">
+      <g
+         id="g3506"
+         style="fill:#a5afcd;fill-opacity:1;fill-rule:nonzero;stroke:none">
+        <path
+           d="m -158,-340 c 0,6.62742 -5.37258,12 -12,12 -6.62742,0 -12,-5.37258 -12,-12 0,-6.62742 5.37258,-12 12,-12 6.62742,0 12,5.37258 12,12 z"
+           id="path3504"
+           inkscape:connector-curvature="0" />
+      </g>
+      <!-- drawing style -->
+    </g>
+    <!-- transform -->
+    <g
+       transform="translate(183,808)"
+       id="g3514">
+      <g
+         id="g3512"
+         style="fill:none;stroke:#000000;stroke-opacity:1">
+        <path
+           d="m -158,-340 c 0,6.62742 -5.37258,12 -12,12 -6.62742,0 -12,-5.37258 -12,-12 0,-6.62742 5.37258,-12 12,-12 6.62742,0 12,5.37258 12,12 z"
+           id="path3510"
+           inkscape:connector-curvature="0" />
+      </g>
+      <!-- drawing style -->
+    </g>
+    <!-- transform -->
+    <g
+       transform="translate(183,808)"
+       id="g3520">
+      <g
+         id="g3518"
+         style="fill:none;stroke:#000000;stroke-opacity:1">
+        <path
+           d="m -174.33013,-342.5 c -1.21323,2.10138 -0.74259,4.77052 1.11619,6.33022 1.85878,1.55971 4.5691,1.55971 6.42788,0 1.85878,-1.5597 2.32942,-4.22884 1.11619,-6.33022"
+           id="path3516"
+           inkscape:connector-curvature="0" />
+      </g>
+      <!-- drawing style -->
+    </g>
+    <!-- transform -->
+    <g
+       transform="translate(183,808)"
+       id="g3526">
+      <g
+         id="g3524"
+         style="fill:#a5afcd;fill-opacity:1;fill-rule:nonzero;stroke:none">
+        <path
+           d="m -158,-782 c 0,6.62742 -5.37258,12 -12,12 -6.62742,0 -12,-5.37258 -12,-12 0,-6.62742 5.37258,-12 12,-12 6.62742,0 12,5.37258 12,12 z"
+           id="path3522"
+           inkscape:connector-curvature="0" />
+      </g>
+      <!-- drawing style -->
+    </g>
+    <!-- transform -->
+    <g
+       transform="translate(183,808)"
+       id="g3532">
+      <g
+         id="g3530"
+         style="fill:none;stroke:#000000;stroke-opacity:1">
+        <path
+           d="m -158,-782 c 0,6.62742 -5.37258,12 -12,12 -6.62742,0 -12,-5.37258 -12,-12 0,-6.62742 5.37258,-12 12,-12 6.62742,0 12,5.37258 12,12 z"
+           id="path3528"
+           inkscape:connector-curvature="0" />
+      </g>
+      <!-- drawing style -->
+    </g>
+    <!-- transform -->
+    <g
+       transform="translate(183,808)"
+       id="g3538">
+      <g
+         id="g3536"
+         style="fill:none;stroke:#000000;stroke-opacity:1">
+        <path
+           d="m -162,-782 c 0,4.41828 -3.58172,8 -8,8 -4.41828,0 -8,-3.58172 -8,-8 0,-4.41828 3.58172,-8 8,-8 4.41828,0 8,3.58172 8,8 z"
+           id="path3534"
+           inkscape:connector-curvature="0" />
+      </g>
+      <!-- drawing style -->
+    </g>
+    <!-- transform -->
+    <g
+       transform="translate(183,808)"
+       id="g3544">
+      <g
+         id="g3542"
+         style="fill:#a5afcd;fill-opacity:1;fill-rule:nonzero;stroke:none">
+        <path
+           d="m -158,-612 c 0,6.62742 -5.37258,12 -12,12 -6.62742,0 -12,-5.37258 -12,-12 0,-6.62742 5.37258,-12 12,-12 6.62742,0 12,5.37258 12,12 z"
+           id="path3540"
+           inkscape:connector-curvature="0" />
+      </g>
+      <!-- drawing style -->
+    </g>
+    <!-- transform -->
+    <g
+       transform="translate(183,808)"
+       id="g3550">
+      <g
+         id="g3548"
+         style="fill:none;stroke:#000000;stroke-opacity:1">
+        <path
+           d="m -158,-612 c 0,6.62742 -5.37258,12 -12,12 -6.62742,0 -12,-5.37258 -12,-12 0,-6.62742 5.37258,-12 12,-12 6.62742,0 12,5.37258 12,12 z"
+           id="path3546"
+           inkscape:connector-curvature="0" />
+      </g>
+      <!-- drawing style -->
+    </g>
+    <!-- transform -->
+    <g
+       transform="translate(183,808)"
+       id="g3556">
+      <g
+         id="g3554"
+         style="fill:#a5afcd;fill-opacity:1;fill-rule:nonzero;stroke:none">
+        <path
+           d="m -158,-204 c 0,6.62742 -5.37258,12 -12,12 -6.62742,0 -12,-5.37258 -12,-12 0,-6.62742 5.37258,-12 12,-12 6.62742,0 12,5.37258 12,12 z"
+           id="path3552"
+           inkscape:connector-curvature="0" />
+      </g>
+      <!-- drawing style -->
+    </g>
+    <!-- transform -->
+    <g
+       transform="translate(183,808)"
+       id="g3562">
+      <g
+         id="g3560"
+         style="fill:none;stroke:#000000;stroke-opacity:1">
+        <path
+           d="m -158,-204 c 0,6.62742 -5.37258,12 -12,12 -6.62742,0 -12,-5.37258 -12,-12 0,-6.62742 5.37258,-12 12,-12 6.62742,0 12,5.37258 12,12 z"
+           id="path3558"
+           inkscape:connector-curvature="0" />
+      </g>
+      <!-- drawing style -->
+    </g>
+    <!-- transform -->
+    <g
+       transform="translate(183,808)"
+       id="g3568">
+      <g
+         id="g3566"
+         style="fill:#a5afcd;fill-opacity:1;fill-rule:nonzero;stroke:none">
+        <path
+           d="m -158,-408 c 0,6.62742 -5.37258,12 -12,12 -6.62742,0 -12,-5.37258 -12,-12 0,-6.62742 5.37258,-12 12,-12 6.62742,0 12,5.37258 12,12 z"
+           id="path3564"
+           inkscape:connector-curvature="0" />
+      </g>
+      <!-- drawing style -->
+    </g>
+    <!-- transform -->
+    <g
+       transform="translate(183,808)"
+       id="g3574">
+      <g
+         id="g3572"
+         style="fill:none;stroke:#000000;stroke-opacity:1">
+        <path
+           d="m -158,-408 c 0,6.62742 -5.37258,12 -12,12 -6.62742,0 -12,-5.37258 -12,-12 0,-6.62742 5.37258,-12 12,-12 6.62742,0 12,5.37258 12,12 z"
+           id="path3570"
+           inkscape:connector-curvature="0" />
+      </g>
+      <!-- drawing style -->
+    </g>
+    <!-- transform -->
+    <g
+       transform="translate(183,808)"
+       id="g3580">
+      <g
+         id="g3578"
+         style="fill:none;stroke:#000000;stroke-opacity:1">
+        <path
+           d="m -174.33013,-410.5 c -1.21323,2.10138 -0.74259,4.77052 1.11619,6.33022 1.85878,1.55971 4.5691,1.55971 6.42788,0 1.85878,-1.5597 2.32942,-4.22884 1.11619,-6.33022"
+           id="path3576"
+           inkscape:connector-curvature="0" />
+      </g>
+      <!-- drawing style -->
+    </g>
+    <!-- transform -->
+    <g
+       transform="translate(183,808)"
+       id="g3586">
+      <g
+         id="g3584"
+         style="fill:#a5afcd;fill-opacity:1;fill-rule:nonzero;stroke:none">
+        <path
+           d="m -158,-272 c 0,6.62742 -5.37258,12 -12,12 -6.62742,0 -12,-5.37258 -12,-12 0,-6.62742 5.37258,-12 12,-12 6.62742,0 12,5.37258 12,12 z"
+           id="path3582"
+           inkscape:connector-curvature="0" />
+      </g>
+      <!-- drawing style -->
+    </g>
+    <!-- transform -->
+    <g
+       transform="translate(183,808)"
+       id="g3592">
+      <g
+         id="g3590"
+         style="fill:none;stroke:#000000;stroke-opacity:1">
+        <path
+           d="m -158,-272 c 0,6.62742 -5.37258,12 -12,12 -6.62742,0 -12,-5.37258 -12,-12 0,-6.62742 5.37258,-12 12,-12 6.62742,0 12,5.37258 12,12 z"
+           id="path3588"
+           inkscape:connector-curvature="0" />
+      </g>
+      <!-- drawing style -->
+    </g>
+    <!-- transform -->
+    <g
+       transform="translate(183,808)"
+       id="g3598">
+      <g
+         id="g3596"
+         style="fill:none;stroke:#000000;stroke-opacity:1">
+        <path
+           d="m -174.33013,-274.5 c -1.21323,2.10138 -0.74259,4.77052 1.11619,6.33022 1.85878,1.55971 4.5691,1.55971 6.42788,0 1.85878,-1.5597 2.32942,-4.22884 1.11619,-6.33022"
+           id="path3594"
+           inkscape:connector-curvature="0" />
+      </g>
+      <!-- drawing style -->
+    </g>
+    <!-- transform -->
+    <g
+       transform="translate(183,808)"
+       id="g3604">
+      <g
+         transform="translate(-153,-794)"
+         id="g3602">
+        <text
+           font-style="normal"
+           font-weight="normal"
+           font-size="14"
+           x="0"
+           y="0"
+           id="text3600"
+           style="font-style:normal;font-weight:normal;font-size:14px;font-family:Helvetica;fill:#8c3863;fill-opacity:1;stroke:none">init_node</text>
+      </g>
+      <!-- transform -->
+    </g>
+    <!-- transform -->
+    <g
+       transform="translate(183,808)"
+       id="g3610">
+      <g
+         transform="translate(-153,-624)"
+         id="g3608">
+        <text
+           font-style="normal"
+           font-weight="normal"
+           font-size="14"
+           x="0"
+           y="0"
+           id="text3606"
+           style="font-style:normal;font-weight:normal;font-size:14px;font-family:Helvetica;fill:#8c3863;fill-opacity:1;stroke:none">wait</text>
+      </g>
+      <!-- transform -->
+    </g>
+    <!-- transform -->
+    <g
+       transform="translate(183,808)"
+       id="g3616">
+      <g
+         transform="translate(-153,-403)"
+         id="g3614">
+        <text
+           font-style="normal"
+           font-weight="normal"
+           font-size="14"
+           x="0"
+           y="0"
+           id="text3612"
+           style="font-style:normal;font-weight:normal;font-size:14px;font-family:Helvetica;fill:#8c3863;fill-opacity:1;stroke:none">update_1</text>
+      </g>
+      <!-- transform -->
+    </g>
+    <!-- transform -->
+    <g
+       transform="translate(183,808)"
+       id="g3622">
+      <g
+         transform="translate(-153,-267)"
+         id="g3620">
+        <text
+           font-style="normal"
+           font-weight="normal"
+           font-size="14"
+           x="0"
+           y="0"
+           id="text3618"
+           style="font-style:normal;font-weight:normal;font-size:14px;font-family:Helvetica;fill:#8c3863;fill-opacity:1;stroke:none">update_k</text>
+      </g>
+      <!-- transform -->
+    </g>
+    <!-- transform -->
+    <g
+       transform="translate(183,808)"
+       id="g3628">
+      <g
+         transform="translate(-150,-557)"
+         id="g3626">
+        <text
+           font-style="normal"
+           font-weight="normal"
+           font-size="14"
+           x="0"
+           y="0"
+           id="text3624"
+           style="font-style:normal;font-weight:normal;font-size:14px;font-family:Helvetica;fill:#42a848;fill-opacity:1;stroke:none">local_time == wait_time</text>
+      </g>
+      <!-- transform -->
+    </g>
+    <!-- transform -->
+    <g
+       transform="translate(183,808)"
+       id="g3634">
+      <g
+         transform="translate(-158,-760)"
+         id="g3632">
+        <text
+           font-style="normal"
+           font-weight="normal"
+           font-size="14"
+           x="0"
+           y="0"
+           id="text3630"
+           style="font-style:normal;font-weight:normal;font-size:14px;font-family:Helvetica;fill:#42a848;fill-opacity:1;stroke:none">(predecessor_done[1] == true) &amp;&amp;</text>
+      </g>
+      <!-- transform -->
+    </g>
+    <!-- transform -->
+    <g
+       transform="translate(183,808)"
+       id="g3640">
+      <g
+         transform="translate(-158,-743)"
+         id="g3638">
+        <text
+           font-style="normal"
+           font-weight="normal"
+           font-size="14"
+           x="0"
+           y="0"
+           id="text3636"
+           style="font-style:normal;font-weight:normal;font-size:14px;font-family:Helvetica;fill:#42a848;fill-opacity:1;stroke:none">// ...</text>
+      </g>
+      <!-- transform -->
+    </g>
+    <!-- transform -->
+    <g
+       transform="translate(183,808)"
+       id="g3646">
+      <g
+         transform="translate(-158,-726)"
+         id="g3644">
+        <text
+           font-style="normal"
+           font-weight="normal"
+           font-size="14"
+           x="0"
+           y="0"
+           id="text3642"
+           style="font-style:normal;font-weight:normal;font-size:14px;font-family:Helvetica;fill:#42a848;fill-opacity:1;stroke:none">(predecessor_done[j] == true)</text>
+      </g>
+      <!-- transform -->
+    </g>
+    <!-- transform -->
+    <g
+       transform="translate(183,808)"
+       id="g3652">
+      <g
+         id="g3650"
+         style="fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1">
+        <path
+           d="m -170,-327 v 42"
+           id="path3648"
+           inkscape:connector-curvature="0" />
+      </g>
+      <!-- drawing style -->
+    </g>
+    <!-- transform -->
+    <g
+       transform="translate(183,808)"
+       id="g3658">
+      <g
+         id="g3656"
+         style="fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1">
+        <path
+           d="M -172.5882,-294.65927 -170,-285 l 2.5882,-9.65927"
+           id="path3654"
+           inkscape:connector-curvature="0" />
+      </g>
+      <!-- drawing style -->
+    </g>
+    <!-- transform -->
+    <g
+       transform="translate(183,808)"
+       id="g3664">
+      <g
+         id="g3662"
+         style="fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1">
+        <path
+           d="m -170,-395 v 42"
+           id="path3660"
+           inkscape:connector-curvature="0" />
+      </g>
+      <!-- drawing style -->
+    </g>
+    <!-- transform -->
+    <g
+       transform="translate(183,808)"
+       id="g3670">
+      <g
+         id="g3668"
+         style="fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1">
+        <path
+           d="M -172.5882,-362.65927 -170,-353 l 2.5882,-9.65927"
+           id="path3666"
+           inkscape:connector-curvature="0" />
+      </g>
+      <!-- drawing style -->
+    </g>
+    <!-- transform -->
+    <g
+       transform="translate(183,808)"
+       id="g3676">
+      <g
+         id="g3674"
+         style="fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1">
+        <path
+           d="m -170,-497 v 76"
+           id="path3672"
+           inkscape:connector-curvature="0" />
+      </g>
+      <!-- drawing style -->
+    </g>
+    <!-- transform -->
+    <g
+       transform="translate(183,808)"
+       id="g3682">
+      <g
+         id="g3680"
+         style="fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1">
+        <path
+           d="M -172.5882,-430.65927 -170,-421 l 2.5882,-9.65927"
+           id="path3678"
+           inkscape:connector-curvature="0" />
+      </g>
+      <!-- drawing style -->
+    </g>
+    <!-- transform -->
+    <g
+       transform="translate(183,808)"
+       id="g3688">
+      <g
+         id="g3686"
+         style="fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1">
+        <path
+           d="m -170,-259 v 42"
+           id="path3684"
+           inkscape:connector-curvature="0" />
+      </g>
+      <!-- drawing style -->
+    </g>
+    <!-- transform -->
+    <g
+       transform="translate(183,808)"
+       id="g3694">
+      <g
+         id="g3692"
+         style="fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1">
+        <path
+           d="M -172.5882,-226.65926 -170,-217 l 2.5882,-9.65926"
+           id="path3690"
+           inkscape:connector-curvature="0" />
+      </g>
+      <!-- drawing style -->
+    </g>
+    <!-- transform -->
+    <g
+       transform="translate(183,808)"
+       id="g3700">
+      <g
+         id="g3698"
+         style="fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1">
+        <path
+           d="m -170,-599 v 76"
+           id="path3696"
+           inkscape:connector-curvature="0" />
+      </g>
+      <!-- drawing style -->
+    </g>
+    <!-- transform -->
+    <g
+       transform="translate(183,808)"
+       id="g3706">
+      <g
+         id="g3704"
+         style="fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1">
+        <path
+           d="M -172.5882,-532.65924 -170,-523 l 2.5882,-9.65924"
+           id="path3702"
+           inkscape:connector-curvature="0" />
+      </g>
+      <!-- drawing style -->
+    </g>
+    <!-- transform -->
+    <g
+       transform="translate(183,808)"
+       id="g3712">
+      <g
+         id="g3710"
+         style="fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1">
+        <path
+           d="m -170,-769 v 144"
+           id="path3708"
+           inkscape:connector-curvature="0" />
+      </g>
+      <!-- drawing style -->
+    </g>
+    <!-- transform -->
+    <g
+       transform="translate(183,808)"
+       id="g3718">
+      <g
+         id="g3716"
+         style="fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1">
+        <path
+           d="M -172.5882,-634.65924 -170,-625 l 2.5882,-9.65924"
+           id="path3714"
+           inkscape:connector-curvature="0" />
+      </g>
+      <!-- drawing style -->
+    </g>
+    <!-- transform -->
+  </g>
+  <!-- default stroke -->
+</svg>
+<!-- bounding box -->
+

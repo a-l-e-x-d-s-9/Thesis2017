@@ -1,0 +1,370 @@
+% !TEX TS-program = xelatex
+% !TEX encoding = UTF-8 Unicode
+% -*- coding: UTF-8; -*-
+% vim: set fenc=utf-8
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% SIMPLE-THESIS-DISSERTATION
+%% <https://github.com/zachscrivena/simple-thesis-dissertation>
+%% This is free and unencumbered software released into the
+%% public domain; see <http://unlicense.org> for details.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% See "README.md" for instructions on compiling this document.
+
+\documentclass[a4paper,12pt,twoside,nonstop,draftmode,openleft]{simplethesisdissertation}
+% Class options:
+% a4paper, letterpaper, nonstop, draftmode.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% PREAMBLE.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Document properties.
+\def\DocumentTitle{A Formal Semantics for PLPs using Probabilistic Timed Automata, and its Application to Controller Verification using UPPAAL}
+\def\AuthorName{Alex Kovalchuk}
+
+% PDF settings and properties.
+\hypersetup{
+pdftitle={\DocumentTitle},
+pdfauthor={\AuthorName},
+pdfsubject={Ph.D. Thesis, University Institute of College, 2016},
+pdfcreator={XeLaTeX},
+pdfproducer={},
+pdfkeywords={},
+unicode=true,
+bookmarks=true,
+bookmarksopen=true,
+pdfstartview=FitH,
+pdfpagelayout=OneColumn,
+pdfpagemode=UseOutlines,
+hidelinks,
+breaklinks,
+bookmarksnumbered
+}
+
+% Accent colors.
+\definecolor{AccentOne}{RGB}{0,68,186} % blue
+
+
+\definecolor{ColorUppaalFunction}{RGB}{0,0,255}
+\definecolor{ColorUppaalCode}{RGB}{56,118,29}
+\definecolor{ColorUppaalChannel}{RGB}{19,79,92}
+\definecolor{ColorUppaalState}{RGB}{116,27,71}
+\definecolor{frameColor}{RGB}{204,204,204}
+
+\definecolor{ColorNodeName}{RGB}{140, 56, 99}
+\definecolor{ColorNodeInvariant}{RGB}{167, 66, 168}
+\definecolor{ColorEdgeGuard}{RGB}{66, 168, 72  }
+\definecolor{ColorEdgeProbability}{RGB}{168, 122, 66}
+\definecolor{ColorEdgeUpdate}{RGB}{66, 66, 168}
+\definecolor{ColorEdgeSynchronization}{RGB}{66, 160, 168}
+
+% Macros:
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\renewcommand{\binom}[2]{\left(\genfrac{}{}{0pt}{}{#1}{#2}\right)}
+\newcommand{\ceil}[1]{{\left\lceil{#1}\right\rceil}}
+%\newcommand{\ffrac}[2]{{\nicefrac{#1}{#2}}}
+%\newcommand{\fffrac}[2]{{\left.{#1}\middle/{#2}\right.}}
+\newcommand{\floor}[1]{{\left\lfloor{#1}\right\rfloor}}
+\DeclareMathOperator{\lcm}{lcm}
+\newcommand{\ZZ}{{\mathbb{Z}}}
+
+
+\setlength{\fboxsep}{0pt}
+\setlength{\fboxrule}{4pt}
+
+%\begin{center}
+%\vfill \fcolorbox{frameColor}{white}{\includegraphics[height=3.4in, width=5in]{Figures/ptaExample.png}}
+%\end{center}
+%\begin{comment}\end{comment}  
+
+%% \fcolorbox{frameColor}{white}{
+
+% \newcommand{\frameImage}[3]{
+% \begin{center}
+%    \fcolorbox{frameColor}{white}{
+%        \includegraphics[height=#2, width=#3]{#1} }
+%\end{center}
+%}
+\usepackage{float}
+
+\newcommand{\frameImage}[3]{
+\begin{figure}[H] 
+  \centerline{
+    \fcolorbox{frameColor}{white}{
+        \includegraphics[height=#2, width=#3]{#1} } }
+    \caption{}
+    \label{fig:#1}
+\end{figure}
+}
+
+\usepackage[nomessages]{fp}
+
+\newcommand{\frameImageRotate}[3]{
+\begin{figure}[H] 
+  \centerline{
+    \FPeval\widthdim{7.8}
+    \FPeval\heightdim{#2 / #3 * \widthdim}
+    \fcolorbox{frameColor}{white}{
+        \includegraphics[height= \heightdim in, width=\widthdim in, angle=270]{#1} } }
+    \caption{}
+    \label{fig:#1}
+\end{figure}
+}
+
+\newcommand{\frameSvg}[3]{
+\begin{figure}[H] 
+    \input{#1}
+    \caption{}
+    \label{fig:#1}
+    
+  
+\end{figure}
+}
+
+\newcommand{\imageInTable}[3]{
+\begin{center}
+    \fcolorbox{frameColor}{white}{
+        \includegraphics[height=#2, width=#3]{#1} }
+\end{center}
+}
+
+%\fcolorbox{frameColor}{white}{
+%\label{fig:figure_#1}
+
+\newcommand{\tableImage}[4]{
+  \begin{table}[H] 
+    \setlength\tabcolsep{0pt}
+    \centering 
+    \begin{tabular}{c|c}
+    \setlength\tabcolsep{0pt}
+    #1 & #3 \\
+    #2 & #4
+    \end{tabular} 
+  \end{table}
+}
+
+\usepackage{comment}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+
+\newcommand{\out}[1]{\ignorespaces}
+
+\newcommand{\tmy}[2]{
+$ #1 $
+}
+
+\newcommand{\tmz}[1]{
+$ #1 $
+}
+
+\newcommand{\cstate}[1]{
+\textit{\textcolor{ColorUppaalState}{#1}}
+}
+
+\definecolor{blue-green}{rgb}{0.0, 0.87, 0.87}
+\definecolor{brightgreen}{rgb}{0.4, 1.0, 0.0}
+\definecolor{richblack}{rgb}{0.0, 0.25, 0.25}
+\definecolor{blue(pigment)}{rgb}{0.2, 0.2, 0.6}
+\definecolor{cardinal}{rgb}{0.77, 0.12, 0.23}
+
+\usepackage{listings}
+
+\lstdefinestyle{styleuppaal}{
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  %frame=single,
+  xleftmargin=\parindent,
+  language=C,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries\color{blue(pigment)},
+  morekeywords={bool,true,false,clock},
+  commentstyle=\itshape\color{cardinal},
+  identifierstyle=\color{richblack},
+  stringstyle=\color{blue-green},
+}
+
+
+\newcommand\colorsCellHeight {12}
+\newcommand\colorsCellWidth  {110}
+
+\newcommand\colorsTable  {
+\begin{table}[H] 
+\centering 
+\begin{tabular}{|l|c|c|} \hline
+Attribute               & RGB(hexadecimal \#RRGGBB) & Color\\ \hline
+Node Name               & \#8C3863                  & \fcolorbox{ColorNodeName}{ColorNodeName}{\makebox(\colorsCellWidth,\colorsCellHeight){}} \\ \hline
+Node Invariant          & \#A742A8                  & \fcolorbox{ColorNodeInvariant}{ColorNodeInvariant}{\makebox(\colorsCellWidth,\colorsCellHeight){}} \\ \hline
+Edge Guard              & \#42A848                  & \fcolorbox{ColorEdgeGuard}{ColorEdgeGuard}{\makebox(\colorsCellWidth,\colorsCellHeight){}} \\ \hline
+Edge Probability        & \#A87A42                  & \fcolorbox{ColorEdgeProbability}{ColorEdgeProbability}{\makebox(\colorsCellWidth,\colorsCellHeight){}} \\ \hline
+Edge Update             & \#4242A8                  & \fcolorbox{ColorEdgeUpdate}{ColorEdgeUpdate}{\makebox(\colorsCellWidth,\colorsCellHeight){}} \\ \hline
+Edge Synchronization    & \#42A0A8                  & \fcolorbox{ColorEdgeSynchronization}{ColorEdgeSynchronization}{\makebox(\colorsCellWidth,\colorsCellHeight){}} \\ \hline
+\end{tabular} 
+\end{table}
+}
+
+\newcommand\runTimesPLPsTable  {
+\begin{table}[H] 
+\centering 
+\begin{tabular}{|l|c|c|} \hline
+PLP                        & Lower boundary & Upper boundary \\ \hline
+achieve\_door\_open        &      100       &      200  \\ \hline
+achieve\_door\_unlock      &      100       &      200  \\ \hline
+achieve\_key\_take         &      100       &      200  \\ \hline
+achieve\_move\_to          &      400       &      600  \\ \hline
+maintain\_key\_hold        &       ?        &       ?   \\ \hline
+observe\_is\_door\_locked  &      300       &      700  \\ \hline
+observe\_is\_door\_open    &      300       &      1000 \\ \hline
+\end{tabular} 
+\end{table}
+}
+
+\usepackage{tabularx}
+
+\newcommand\plpsExecutionTable  {
+\begin{table}[H] 
+\centering 
+\begin{tabularx}{\linewidth}{|*{7}{>{\centering\arraybackslash}X|}} \hline
+Path 1: & Path 2: & Path 3: & Path 4: \\
+Parallel to other paths, makes sure that robot holding a key & In case the door is open  & In case the door is closed but unlocked &  In case the door is closed and locked \\ \hline
+\multicolumn{4}{|c|}{move\_to(key)}  \\ \hline
+\multicolumn{4}{|c|}{key\_take }     \\ \hline
+\multirow{7}{*}{key\_hold} & \multicolumn{3}{c|}{move\_to(doorway)} \\ \cline{2-4}
+& \multicolumn{3}{c|}{is\_door\_open}  \\ \cline{2-4}
+& \multirow{4}{*}{\shortstack{move\_to \\ (through\_doorway)}} & \multicolumn{2}{c|}{is\_door\_locked}   \\ \cline{3-4}
+& & \multirow{2}{*}{door\_open} & door\_unlock  \\ \cline{4-4} 
+& & & door\_open  \\ \cline{3-4} 
+& & move\_to (through\_doorway) & move\_to (through\_doorway) \\ \cline{2-4} 
+& move\_to(target) & move\_to(target) & move\_to(target)  \\ \hline 
+\end{tabularx} 
+\end{table}
+}
+
+\newcommand\queriesTable  {
+\begin{table}[H] 
+\centering 
+\begin{tabularx}{\linewidth}{|*{4}{>{\centering\arraybackslash}X|}} \hline
+
+Name                    & Property                                          & Explanation                                                                       & Equivalent to                             \\ \hline
+Possibly                & \textit{E<> p}                                    & If exist a path that \textit{p} is eventually true.                               &                                           \\ \hline
+Invariantly             & \textit{A\small[\small] p}                        & If for all paths \textit{p} is true all the time.                                 & \textit{not E<> not p}                    \\ \hline
+Potentially always      & \textit{E\small[\small] p}                        & If exist a path that \textit{p} is true all the time.                             &                                           \\ \hline
+Eventually              & \textit{A<> p}                                    & If for all the paths, \textit{p} is eventually true.                              & \textit{not E\small[\small] not p}        \\ \hline
+Leads to                & \textit{p - -> q}                                 & For all the paths, if \textit{p} is true, \textit{q} will be eventually true.     & \textit{A\small[\small] (p imply A<> q)}  \\ \hline
+Probability eventually  & \textit{Pr\small[\small] (<>q)}                   & Calculate the probability of \textit{q} eventually true.                          &                                           \\ \hline
+Probability always      & \textit{Pr\small[\small] (\small[\small]q)}       & Calculate the probability of \textit{q} always true.                              &                                            \\ \hline
+
+\end{tabularx} 
+\end{table}
+}
+
+
+
+\newcommand\runTimesPTAsTableAll  {
+\begin{table}[H] 
+\centering 
+\begin{tabular}{l l}
+\underline{PLP}		& \underline{Run time range}    \\
+move\_to(key)		& [400,600]     \\
+key\_take 		   	& [100,200]     \\
+move\_to(doorway) 	& [400,600]     \\
+is\_door\_open		& [300,1000]    \\
+is\_door\_locked	& [300,700]     \\
+door\_unlock		& [100,200]     \\
+\end{tabular} 
+\end{table}
+}
+
+\newcommand\runTimesPTAsTableStart  {
+\begin{table}[H] 
+\centering 
+\begin{tabular}{l l} 
+\underline{PLP} & \underline{Run time range}  \\
+move\_to(key) 	  & [400,600] \\
+key\_take 	  	 & [100,200]  \\
+\end{tabular} 
+\end{table}
+}
+
+
+
+\newcommand\tab{\hspace{1cm}}
+
+\usepackage{color,soul}
+
+\definecolor{chartreuse(web)}{rgb}{0.5, 1.0, 0.0}
+%\sethlcolor{chartreuse(web)}
+
+% \begin{lstlisting}[style=styleuppaal]
+% \lstset{escapechar=@,style=customc}
+
+\definecolor{darkmidnightblue}{rgb}{0.0, 0.2, 0.4}
+\definecolor{darkcerulean}{rgb}{0.03, 0.27, 0.49}
+\definecolor{oxfordblue}{rgb}{0.0, 0.13, 0.28}
+\definecolor{smokyblack}{rgb}{0.06, 0.05, 0.03}
+
+\usepackage{hyperref} 
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=smokyblack,
+    filecolor=magenta,      
+    urlcolor=blue,
+    citecolor=darkcerulean,
+}
+\urlstyle{same}
+
+\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+\let\endchangemargin=\endlist 
+
+
+\definecolor{gray}{rgb}{0.4,0.4,0.4}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.6}
+\definecolor{cyan}{rgb}{0.0,0.6,0.6}
+
+\lstdefinestyle{stylexml}{
+  basicstyle=\ttfamily,
+  columns=fullflexible,
+  breaklines=true,
+  showstringspaces=false,
+  commentstyle=\color{gray}\upshape
+}
+
+\lstdefinelanguage{XML}
+{
+  morestring=[b]",
+  morestring=[s]{>}{<},
+  morecomment=[s]{<?}{?>},
+  stringstyle=\color{black},
+  identifierstyle=\color{darkblue},
+  keywordstyle=\color{cyan},
+  morekeywords={xmlns,version,type}% list your attributes here
+}
+
+
+\definecolor{purple(munsell)}{rgb}{0.62, 0.0, 0.77}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ACTUAL DOCUMENT.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\input{Thesis-FrontMatter.tex}
+
+%%\input{Thesis-Chapter-Intro.tex}
+
+\input{Thesis-Main.tex}
+
+%%\input{Thesis-Chapter-Summary.tex}
+
+\input{Thesis-BackMatter.tex}
+
+\input{Thesis-Appendices.tex}
+
+\end{document}

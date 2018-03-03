@@ -10,7 +10,7 @@ Performance Level Profiles (PLPs) were developed as a formal, quantitative langu
 In recent years, we are witnessing accelerated development in the field of autonomous robotic systems. There are many possible applications for autonomous robots, and each application introduces new challenges. Especially challenging is the development of autonomous robots functioning alongside humans in a safe and reliable manner. Hence the growing need for methods for building reliable and predictable autonomous robots. Currently, there are a few existing tools [5] that seek to achieve these goals by defining formal programming languages for describing a robotic system that generates code with various guarantees and support the ability to prove and infer system properties. Unfortunately, these tools have not been widely adopted, and most developers prefer to use regular programming languages to design robotic components.
 \par One of the key problems with code written using standard programming languages is that it is not always clear what level of performance one can expect from it. Such information is required to understand what one can expect from a robot using such code. It is essential information for predicting its behavior and is required to enable appropriate reuse of code. This information can sometimes be obtained from its documentation, but the standard specification techniques used by most software engineers are informal, qualitative, and use free text which is not machine readable. 
 \par Performance Level Profiles (PLPs) [1] [2] were developed as a formal, quantitative language for specifying the behavior of functional modules. PLPs were developed to help developers who use regular programming languages provide a formal, quantitative, machine readable specification of their module’s behavior. This information makes it possible to reuse the abundant existing modules more reliably and also makes possible automatic analysis, monitoring of modules, as well the use of automated learning techniques to update their descriptions. PLPs can be used by a robotic control unit to provide it with information about conditions needed to execute a module, conditions made true by the module when done successfully, possible failure modes, the module’s probability to complete its work successfully without any failure, time distribution of its execution, and more.
-\par There are four types of PLPs: 1. Achieve - works to achieve some desirable property, internal or external to. 2. Observe - attempts to reveal a value of an environmental variable. 3. Maintain - works to keep a certain variable in particular range or maintain some condition while running. 4. Detect - attempts to identify some condition that is either not true now, or that is not immediately observable. 
+\par There are four types of PLPs: 1. Achieve - works to achieve some desirable property, internal or external. 2. Observe - attempts to reveal a value of an environmental variable. 3. Maintain - works to keep a certain variable in particular range or maintain some condition while running. 4. Detect - attempts to identify some condition that is either not true now, or that is not immediately observable. 
 \par Generally, PLPs provide a basis to look at a software module as a sort of logical unit that can be executed only if its preconditions are satisfied, and when executed it achieves certain goals. Elements used by PLPs can provide a foundation for modular system design and other complex applications. Currently, software tools for PLPs [2] are used to: 1. Generate code automatically from a PLP to monitor conditions specified by the PLP 2. Analyze performance to update the PLP specification. 3. Generate plans that achieve user specified tasks on the fly, by both generating domains descriptions that can be used in off-the-shelf planners, and also providing the needed software interfaces between the planner and the underlying functional module.
 \par But while PLPs are quite intuitive, they lack a formal semantics. Such semantics is essential to make their meaning clear and is required to be able to prove properties. Moreover, a robot’s behavior is the result of the execution of multiple modules combined in diverse ways, and one would want to go beyond the module level in order to characterize and prove properties of the entire program. The goal of this thesis is to address these problems theoretically and practically. 
 \par In this thesis, we propose a formal semantics for PLP defined by Probabilistic Timed Automaton (PTA) [3], on which we apply then an existing model checking tool. We introduce a structure, control graph, which represents a control unit of a robot that uses PLPs as functional units. We show how control graphs and PLPs can be used to verify properties of the whole system offline, and we provide a software tool implementing this technique.
@@ -229,7 +229,7 @@ PTAC waits in S_1 state for termination condition \textit{”not(a) and not(b)�
 
 \end{comment}
 In this example when PTAA transitioning from S_2 to S_3, the variable \textit{a} is already \textit{false}, a signal to PTAB and PTAC passed on the channel a_chan. PTAB termination condition is satisfied, and it can transition from S_1 to S_2. PTAC termination condition is not satisfied by the change; therefore PTAC remains in the S_1 state.
-\par In our system any variable can be used as part of some termination condition; therefore we need to enforce the signaling mechanism that we described here, upon every write to any variable. Due to parallel execution of PTAsPLP in the system, we need need to deal with race conditions and incoherency of data. We will address these problems with the concurrent module in \ref{section_concurrent_module}. 
+\par In our system any variable can be used as part of some termination condition; therefore we need to enforce the signaling mechanism that we described here, upon every write to any variable. Due to parallel execution of PTAsPLP in the system, we need to deal with race conditions and incoherency of data. We will address these problems with the concurrent module in \ref{section_concurrent_module}. 
 4.12 Concurrent module \label{section_concurrent_module}
 To handle a system with numerous PLPs interacting with each other through shared memory, we need to make sure to enforce restrictions on the parallel nature of our system. We need to make sure to prevent race conditions and incoherency of concurrent conditions, termination conditions, goals, preconditions, observed variables, resources, side effects, and generally any shared memory between PTAsPLP. For this purpose, we dedicated a special memory in the system, and we enforce a mutually exclusive access to it between the PTAsPLP. We refer to this memory as a concurrent memory. To the PTA that enforces mutually exclusive access to the concurrent memory, we call it the concurrent module.
 \par The concurrent module provides the capability for PTAPLP to check that values of certain variable remain inside (or outside) certain range even when accessed by other PTAsPLP. The concurrent module combines the following components: 1. Concurrent memory - an array of variables and array of variable tracking requests to make sure they stay in a certain range. 2. Concurrent module PTA - PTA that is enforcing mutually exclusive access to data. 3 .Concurrent module API - functions (pseudocode in <Appendix 1>) and channels used to communicate with concurrent module PTA, to read/write data and add/remove tracking requests for variables.
@@ -347,7 +347,7 @@ Any PTAPLP may need check that there are enough resources for it to run, with an
             2. Assessing results: if result_1 == false or result_2 == false then go to the failure state, otherwise continue running.  \end{enumerate}    
 
 
-Here we can see an example of concurrent module application for PTAPLP Maintain, that is maintaining the value 5 and verifying it:  \frameImageRotate{Figures/concurrentAccessAll.png}{2.326in}{5.5in} \begin{comment}
+Here we can see an example of concurrent module application for PTAPLP Maintain, that is maintaining the value 5 and verifying it:  \frameImageRotate{Figures/concurrentAccessAll.png}{2.326}{5.5} \begin{comment}
   
 
 \end{comment}
@@ -357,7 +357,7 @@ ________________
 In this section, we will continue with the premises from the previous section (see: \ref{foundation_for_formal_semantics_for_plps}) and use the established foundation, to follow specifications of each type of PLP, with the goal to define a formal semantics for it with a PTA model.
 5.1 PTAPLP Achieve
 PLP Achieve describes modules that work to accomplish a certain goal. We use PTA’s components that we have already described: conditions, time distributions, and probabilities, to create template PTA for PTAPLP Achieve. 
-PTAPLP Achieve template: \frameImageRotate{Figures/ptaAchieve16.png}{2.552in}{5.5in} \begin{comment}  
+PTAPLP Achieve template: \frameImageRotate{Figures/ptaAchieve16.png}{2.552}{5.5} \begin{comment}  
  \end{comment}
 We will go through the elements of PLP Achieve (see: \ref{plp_common_elements} and \ref{plp_achieve}) and show how they are defined by PTAPLP Achieve.
 5.1.1 Scheduling mechanism \label{pta_achieve_scheduling_mechanism}
@@ -385,7 +385,7 @@ ________________
 
 5.2 PTAPLP Maintain
 PLP Maintain describes a module that makes sure that a certain condition is holding while running, it can be terminated spontaneously by run time distribution or by termination condition. The PTAPLP Maintain will be similar to PTAPLP Achieve, with changes and additions. 
-PTAPLP Maintain template:  \frameImageRotate{Figures/ptaMaintain16.png}{2.48in}{5.5in} \begin{comment}
+PTAPLP Maintain template:  \frameImageRotate{Figures/ptaMaintain16.png}{2.48}{5.5} \begin{comment}
   
 
 \end{comment}
@@ -413,7 +413,7 @@ ________________
 
 5.3 PTAPLP Observe
 PLP Observe senses a value of a certain variable from the real world. We do not support emulation of environment and state of the world, so we have to produce possible values of the environmental variables ourselves. It is being done by assignment of possible values to the variable according to the possible domain of the variable, with uniform distribution. 
-PTAPLP Observe template:  \frameImageRotate{Figures/ptaObserve16.png}{3.052in}{5.5in} \begin{comment}
+PTAPLP Observe template:  \frameImageRotate{Figures/ptaObserve16.png}{3.052}{5.5} \begin{comment}
   
 
 \end{comment}
@@ -442,7 +442,7 @@ Repeat extension is defined identically to the case of PTAPLP Achieve (see: \ref
 ________________
 5.4 PTAPLP Detect
 PLP Detect is waiting until a certain condition is fulfilled. 
-PTAPLP Detect template: \frameImageRotate{Figures/ptaDetect16.png}{1.735in}{5.5in} \begin{comment}
+PTAPLP Detect template: \frameImageRotate{Figures/ptaDetect16.png}{1.735}{5.5} \begin{comment}
   
 
 \end{comment}

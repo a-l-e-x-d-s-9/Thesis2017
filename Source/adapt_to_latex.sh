@@ -51,7 +51,10 @@ def latex_italic_middle( in_text ):
     return r"\1" + latex_add_label( r"\2", "textit" ) + r"\3"
      
 def latex_add_subscript( in_text ):
-    return latex_add_label( in_text, "textsubscript" )
+    #return latex_add_label( in_text, "textsubscript" )
+    #https://tex.stackexchange.com/questions/47324/superscript-outside-math-mode
+    #https://texblog.org/2012/08/29/changing-the-font-size-in-latex/
+    return "\\\\raisebox{-0.5ex}{\\\\scriptsize{" + in_text + "}}"
     
 def latex_add_supscript( in_text ):
     return latex_add_label( in_text, "textsuperscript" )

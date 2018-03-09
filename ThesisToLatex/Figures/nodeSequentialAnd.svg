@@ -1,884 +1,282 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   version="1.1"
-   x="0px"
-   y="0px"
-   width="246.26175"
-   height="558.5"
-   viewBox="0 0 246.26175 558.5"
-   id="svg5342"
-   sodipodi:docname="nodeSequentialAnd.svg"
-   inkscape:export-filename="/home/alexds9/Thesis/ThesisToLatex/ThesisToLatex/Figures/nodeSequentialAnd.png"
-   inkscape:export-xdpi="400"
-   inkscape:export-ydpi="400"
-   inkscape:version="0.92.1 r15371">
-  <metadata
-     id="metadata5348">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <defs
-     id="defs5346" />
-  <sodipodi:namedview
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1"
-     objecttolerance="10"
-     gridtolerance="10"
-     guidetolerance="10"
-     inkscape:pageopacity="0"
-     inkscape:pageshadow="2"
-     inkscape:window-width="1535"
-     inkscape:window-height="876"
-     id="namedview5344"
-     showgrid="false"
-     fit-margin-top="5"
-     fit-margin-right="5"
-     fit-margin-bottom="5"
-     fit-margin-left="5"
-     inkscape:zoom="1.2136524"
-     inkscape:cx="-57.748189"
-     inkscape:cy="266.44243"
-     inkscape:window-x="65"
-     inkscape:window-y="24"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="svg5342" />
-  <desc
-     id="desc5010">Creator: FreeHEP Graphics2D Driver Producer: org.freehep.graphicsio.svg.SVGGraphics2D Revision Source:  Date: Monday, October 2, 2017 6:08:24 PM IDT</desc>
-  <g
-     stroke-miterlimit="10"
-     id="g5340"
-     style="stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0"
-     transform="translate(5,5)">
-    <g
-       id="g5014"
-       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none">
-      <path
-         d="M 0,0 V 0 0 Z"
-         id="path5012"
-         inkscape:connector-curvature="0" />
-    </g>
-    <!-- drawing style -->
-    <g
-       transform="translate(-191,264)"
-       id="g5020">
-      <g
-         transform="translate(221,89)"
-         id="g5018">
-        <text
-           font-style="normal"
-           font-weight="normal"
-           font-size="14"
-           x="0"
-           y="0"
-           id="text5016"
-           style="font-style:normal;font-weight:normal;font-size:14px;font-family:Helvetica;fill:#42a0a8;fill-opacity:1;stroke:none">pta_done[m]!</text>
-      </g>
-      <!-- transform -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5026">
-      <g
-         transform="translate(221,47)"
-         id="g5024">
-        <text
-           font-style="normal"
-           font-weight="normal"
-           font-size="14"
-           x="0"
-           y="0"
-           id="text5022"
-           style="font-style:normal;font-weight:normal;font-size:14px;font-family:Helvetica;fill:#42a0a8;fill-opacity:1;stroke:none">pta_start[m]!</text>
-      </g>
-      <!-- transform -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5032">
-      <g
-         transform="translate(221,-55)"
-         id="g5030">
-        <text
-           font-style="normal"
-           font-weight="normal"
-           font-size="14"
-           x="0"
-           y="0"
-           id="text5028"
-           style="font-style:normal;font-weight:normal;font-size:14px;font-family:Helvetica;fill:#42a0a8;fill-opacity:1;stroke:none">pta_done[1]?</text>
-      </g>
-      <!-- transform -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5038">
-      <g
-         transform="translate(221,-106)"
-         id="g5036">
-        <text
-           font-style="normal"
-           font-weight="normal"
-           font-size="14"
-           x="0"
-           y="0"
-           id="text5034"
-           style="font-style:normal;font-weight:normal;font-size:14px;font-family:Helvetica;fill:#42a0a8;fill-opacity:1;stroke:none">pta_start[1]!</text>
-      </g>
-      <!-- transform -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5044">
-      <g
-         transform="translate(212,234)"
-         id="g5042">
-        <text
-           font-style="normal"
-           font-weight="normal"
-           font-size="14"
-           x="0"
-           y="0"
-           id="text5040"
-           style="font-style:normal;font-weight:normal;font-size:14px;font-family:Helvetica;fill:#42a0a8;fill-opacity:1;stroke:none">try_to_run_successor!</text>
-      </g>
-      <!-- transform -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5050">
-      <g
-         transform="translate(216,-157)"
-         id="g5048">
-        <text
-           font-style="normal"
-           font-weight="normal"
-           font-size="14"
-           x="0"
-           y="0"
-           id="text5046"
-           style="font-style:normal;font-weight:normal;font-size:14px;font-family:Helvetica;fill:#42a0a8;fill-opacity:1;stroke:none">try_to_run?</text>
-      </g>
-      <!-- transform -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5056">
-      <g
-         transform="translate(216,157)"
-         id="g5054">
-        <text
-           font-style="normal"
-           font-weight="normal"
-           font-size="14"
-           x="0"
-           y="0"
-           id="text5052"
-           style="font-style:normal;font-weight:normal;font-size:14px;font-family:Helvetica;fill:#4242a8;fill-opacity:1;stroke:none">successor_can_run = true</text>
-      </g>
-      <!-- transform -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5062">
-      <g
-         id="g5060"
-         style="fill:#a5afcd;fill-opacity:1;fill-rule:nonzero;stroke:none">
-        <path
-           d="m 216,272 c 0,6.62742 -5.37258,12 -12,12 -6.62742,0 -12,-5.37258 -12,-12 0,-6.62742 5.37258,-12 12,-12 6.62742,0 12,5.37258 12,12 z"
-           id="path5058"
-           inkscape:connector-curvature="0" />
-      </g>
-      <!-- drawing style -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5068">
-      <g
-         id="g5066"
-         style="fill:none;stroke:#000000;stroke-opacity:1">
-        <path
-           d="m 216,272 c 0,6.62742 -5.37258,12 -12,12 -6.62742,0 -12,-5.37258 -12,-12 0,-6.62742 5.37258,-12 12,-12 6.62742,0 12,5.37258 12,12 z"
-           id="path5064"
-           inkscape:connector-curvature="0" />
-      </g>
-      <!-- drawing style -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5074">
-      <g
-         id="g5072"
-         style="fill:#a5afcd;fill-opacity:1;fill-rule:nonzero;stroke:none">
-        <path
-           d="m 216,195 c 0,6.62742 -5.37258,12 -12,12 -6.62742,0 -12,-5.37258 -12,-12 0,-6.62742 5.37258,-12 12,-12 6.62742,0 12,5.37258 12,12 z"
-           id="path5070"
-           inkscape:connector-curvature="0" />
-      </g>
-      <!-- drawing style -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5080">
-      <g
-         id="g5078"
-         style="fill:none;stroke:#000000;stroke-opacity:1">
-        <path
-           d="m 216,195 c 0,6.62742 -5.37258,12 -12,12 -6.62742,0 -12,-5.37258 -12,-12 0,-6.62742 5.37258,-12 12,-12 6.62742,0 12,5.37258 12,12 z"
-           id="path5076"
-           inkscape:connector-curvature="0" />
-      </g>
-      <!-- drawing style -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5086">
-      <g
-         id="g5084"
-         style="fill:none;stroke:#000000;stroke-opacity:1">
-        <path
-           d="m 199.66987,192.5 c -1.21323,2.10138 -0.74259,4.77052 1.11619,6.33022 1.85878,1.55971 4.5691,1.55971 6.42788,0 1.85878,-1.5597 2.32942,-4.22884 1.11619,-6.33022"
-           id="path5082"
-           inkscape:connector-curvature="0" />
-      </g>
-      <!-- drawing style -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5092">
-      <g
-         id="g5090"
-         style="fill:#a5afcd;fill-opacity:1;fill-rule:nonzero;stroke:none">
-        <path
-           d="m 216,-238 c 0,6.62742 -5.37258,12 -12,12 -6.62742,0 -12,-5.37258 -12,-12 0,-6.62742 5.37258,-12 12,-12 6.62742,0 12,5.37258 12,12 z"
-           id="path5088"
-           inkscape:connector-curvature="0" />
-      </g>
-      <!-- drawing style -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5098">
-      <g
-         id="g5096"
-         style="fill:none;stroke:#000000;stroke-opacity:1">
-        <path
-           d="m 216,-238 c 0,6.62742 -5.37258,12 -12,12 -6.62742,0 -12,-5.37258 -12,-12 0,-6.62742 5.37258,-12 12,-12 6.62742,0 12,5.37258 12,12 z"
-           id="path5094"
-           inkscape:connector-curvature="0" />
-      </g>
-      <!-- drawing style -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5104">
-      <g
-         id="g5102"
-         style="fill:none;stroke:#000000;stroke-opacity:1">
-        <path
-           d="m 212,-238 c 0,4.41828 -3.58172,8 -8,8 -4.41828,0 -8,-3.58172 -8,-8 0,-4.41828 3.58172,-8 8,-8 4.41828,0 8,3.58172 8,8 z"
-           id="path5100"
-           inkscape:connector-curvature="0" />
-      </g>
-      <!-- drawing style -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5110">
-      <g
-         id="g5108"
-         style="fill:#a5afcd;fill-opacity:1;fill-rule:nonzero;stroke:none">
-        <path
-           d="m 216,-136 c 0,6.62742 -5.37258,12 -12,12 -6.62742,0 -12,-5.37258 -12,-12 0,-6.62742 5.37258,-12 12,-12 6.62742,0 12,5.37258 12,12 z"
-           id="path5106"
-           inkscape:connector-curvature="0" />
-      </g>
-      <!-- drawing style -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5116">
-      <g
-         id="g5114"
-         style="fill:none;stroke:#000000;stroke-opacity:1">
-        <path
-           d="m 216,-136 c 0,6.62742 -5.37258,12 -12,12 -6.62742,0 -12,-5.37258 -12,-12 0,-6.62742 5.37258,-12 12,-12 6.62742,0 12,5.37258 12,12 z"
-           id="path5112"
-           inkscape:connector-curvature="0" />
-      </g>
-      <!-- drawing style -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5122">
-      <g
-         id="g5120"
-         style="fill:none;stroke:#000000;stroke-opacity:1">
-        <path
-           d="m 199.66987,-138.5 c -1.21323,2.10138 -0.74259,4.77052 1.11619,6.33022 1.85878,1.55971 4.5691,1.55971 6.42788,0 1.85878,-1.5597 2.32942,-4.22884 1.11619,-6.33022"
-           id="path5118"
-           inkscape:connector-curvature="0" />
-      </g>
-      <!-- drawing style -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5128">
-      <g
-         id="g5126"
-         style="fill:#a5afcd;fill-opacity:1;fill-rule:nonzero;stroke:none">
-        <path
-           d="m 216,-85 c 0,6.627417 -5.37258,12 -12,12 -6.62742,0 -12,-5.372583 -12,-12 0,-6.627417 5.37258,-12 12,-12 6.62742,0 12,5.372583 12,12 z"
-           id="path5124"
-           inkscape:connector-curvature="0" />
-      </g>
-      <!-- drawing style -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5134">
-      <g
-         id="g5132"
-         style="fill:none;stroke:#000000;stroke-opacity:1">
-        <path
-           d="m 216,-85 c 0,6.627417 -5.37258,12 -12,12 -6.62742,0 -12,-5.372583 -12,-12 0,-6.627417 5.37258,-12 12,-12 6.62742,0 12,5.372583 12,12 z"
-           id="path5130"
-           inkscape:connector-curvature="0" />
-      </g>
-      <!-- drawing style -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5140">
-      <g
-         id="g5138"
-         style="fill:none;stroke:#000000;stroke-opacity:1">
-        <path
-           d="m 199.66987,-87.5 c -1.21323,2.101383 -0.74259,4.770519 1.11619,6.330222 1.85878,1.559704 4.5691,1.559704 6.42788,0 1.85878,-1.559703 2.32942,-4.228839 1.11619,-6.330222"
-           id="path5136"
-           inkscape:connector-curvature="0" />
-      </g>
-      <!-- drawing style -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5146">
-      <g
-         id="g5144"
-         style="fill:#a5afcd;fill-opacity:1;fill-rule:nonzero;stroke:none">
-        <path
-           d="m 216,-34 c 0,6.627417 -5.37258,12 -12,12 -6.62742,0 -12,-5.372583 -12,-12 0,-6.627417 5.37258,-12 12,-12 6.62742,0 12,5.372583 12,12 z"
-           id="path5142"
-           inkscape:connector-curvature="0" />
-      </g>
-      <!-- drawing style -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5152">
-      <g
-         id="g5150"
-         style="fill:none;stroke:#000000;stroke-opacity:1">
-        <path
-           d="m 216,-34 c 0,6.627417 -5.37258,12 -12,12 -6.62742,0 -12,-5.372583 -12,-12 0,-6.627417 5.37258,-12 12,-12 6.62742,0 12,5.372583 12,12 z"
-           id="path5148"
-           inkscape:connector-curvature="0" />
-      </g>
-      <!-- drawing style -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5158">
-      <g
-         id="g5156"
-         style="fill:none;stroke:#000000;stroke-opacity:1">
-        <path
-           d="m 199.66987,-36.5 c -1.21323,2.101383 -0.74259,4.770519 1.11619,6.330222 1.85878,1.559704 4.5691,1.559704 6.42788,0 1.85878,-1.559703 2.32942,-4.228839 1.11619,-6.330222"
-           id="path5154"
-           inkscape:connector-curvature="0" />
-      </g>
-      <!-- drawing style -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5164">
-      <g
-         id="g5162"
-         style="fill:#a5afcd;fill-opacity:1;fill-rule:nonzero;stroke:none">
-        <path
-           d="m 216,17 c 0,6.627417 -5.37258,12 -12,12 -6.62742,0 -12,-5.372583 -12,-12 0,-6.627417 5.37258,-12 12,-12 6.62742,0 12,5.372583 12,12 z"
-           id="path5160"
-           inkscape:connector-curvature="0" />
-      </g>
-      <!-- drawing style -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5170">
-      <g
-         id="g5168"
-         style="fill:none;stroke:#000000;stroke-opacity:1">
-        <path
-           d="m 216,17 c 0,6.627417 -5.37258,12 -12,12 -6.62742,0 -12,-5.372583 -12,-12 0,-6.627417 5.37258,-12 12,-12 6.62742,0 12,5.372583 12,12 z"
-           id="path5166"
-           inkscape:connector-curvature="0" />
-      </g>
-      <!-- drawing style -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5176">
-      <g
-         id="g5174"
-         style="fill:none;stroke:#000000;stroke-opacity:1">
-        <path
-           d="m 199.66987,14.5 c -1.21323,2.101383 -0.74259,4.770519 1.11619,6.330222 1.85878,1.559704 4.5691,1.559704 6.42788,0 1.85878,-1.559703 2.32942,-4.228839 1.11619,-6.330222"
-           id="path5172"
-           inkscape:connector-curvature="0" />
-      </g>
-      <!-- drawing style -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5182">
-      <g
-         id="g5180"
-         style="fill:#a5afcd;fill-opacity:1;fill-rule:nonzero;stroke:none">
-        <path
-           d="m 216,68 c 0,6.627417 -5.37258,12 -12,12 -6.62742,0 -12,-5.372583 -12,-12 0,-6.627417 5.37258,-12 12,-12 6.62742,0 12,5.372583 12,12 z"
-           id="path5178"
-           inkscape:connector-curvature="0" />
-      </g>
-      <!-- drawing style -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5188">
-      <g
-         id="g5186"
-         style="fill:none;stroke:#000000;stroke-opacity:1">
-        <path
-           d="m 216,68 c 0,6.627417 -5.37258,12 -12,12 -6.62742,0 -12,-5.372583 -12,-12 0,-6.627417 5.37258,-12 12,-12 6.62742,0 12,5.372583 12,12 z"
-           id="path5184"
-           inkscape:connector-curvature="0" />
-      </g>
-      <!-- drawing style -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5194">
-      <g
-         id="g5192"
-         style="fill:none;stroke:#000000;stroke-opacity:1">
-        <path
-           d="m 199.66987,65.5 c -1.21323,2.101383 -0.74259,4.770519 1.11619,6.330222 1.85878,1.559704 4.5691,1.559704 6.42788,0 1.85878,-1.559703 2.32942,-4.228839 1.11619,-6.330222"
-           id="path5190"
-           inkscape:connector-curvature="0" />
-      </g>
-      <!-- drawing style -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5200">
-      <g
-         id="g5198"
-         style="fill:#a5afcd;fill-opacity:1;fill-rule:nonzero;stroke:none">
-        <path
-           d="m 216,119 c 0,6.62742 -5.37258,12 -12,12 -6.62742,0 -12,-5.37258 -12,-12 0,-6.62742 5.37258,-12 12,-12 6.62742,0 12,5.37258 12,12 z"
-           id="path5196"
-           inkscape:connector-curvature="0" />
-      </g>
-      <!-- drawing style -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5206">
-      <g
-         id="g5204"
-         style="fill:none;stroke:#000000;stroke-opacity:1">
-        <path
-           d="m 216,119 c 0,6.62742 -5.37258,12 -12,12 -6.62742,0 -12,-5.37258 -12,-12 0,-6.62742 5.37258,-12 12,-12 6.62742,0 12,5.37258 12,12 z"
-           id="path5202"
-           inkscape:connector-curvature="0" />
-      </g>
-      <!-- drawing style -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5212">
-      <g
-         id="g5210"
-         style="fill:none;stroke:#000000;stroke-opacity:1">
-        <path
-           d="m 199.66987,116.5 c -1.21323,2.10138 -0.74259,4.77052 1.11619,6.33022 1.85878,1.55971 4.5691,1.55971 6.42788,0 1.85878,-1.5597 2.32942,-4.22884 1.11619,-6.33022"
-           id="path5208"
-           inkscape:connector-curvature="0" />
-      </g>
-      <!-- drawing style -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5218">
-      <g
-         transform="translate(221,-250)"
-         id="g5216">
-        <text
-           font-style="normal"
-           font-weight="normal"
-           font-size="14"
-           x="0"
-           y="0"
-           id="text5214"
-           style="font-style:normal;font-weight:normal;font-size:14px;font-family:Helvetica;fill:#8c3863;fill-opacity:1;stroke:none">init_node</text>
-      </g>
-      <!-- transform -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5224">
-      <g
-         transform="translate(221,123)"
-         id="g5222">
-        <text
-           font-style="normal"
-           font-weight="normal"
-           font-size="14"
-           x="0"
-           y="0"
-           id="text5220"
-           style="font-style:normal;font-weight:normal;font-size:14px;font-family:Helvetica;fill:#8c3863;fill-opacity:1;stroke:none">update</text>
-      </g>
-      <!-- transform -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5230">
-      <g
-         transform="translate(216,-216)"
-         id="g5228">
-        <text
-           font-style="normal"
-           font-weight="normal"
-           font-size="14"
-           x="0"
-           y="0"
-           id="text5226"
-           style="font-style:normal;font-weight:normal;font-size:14px;font-family:Helvetica;fill:#42a848;fill-opacity:1;stroke:none">(predecessor_done[1] == true) &amp;&amp;</text>
-      </g>
-      <!-- transform -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5236">
-      <g
-         transform="translate(216,-199)"
-         id="g5234">
-        <text
-           font-style="normal"
-           font-weight="normal"
-           font-size="14"
-           x="0"
-           y="0"
-           id="text5232"
-           style="font-style:normal;font-weight:normal;font-size:14px;font-family:Helvetica;fill:#42a848;fill-opacity:1;stroke:none">// ...</text>
-      </g>
-      <!-- transform -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5242">
-      <g
-         transform="translate(216,-182)"
-         id="g5240">
-        <text
-           font-style="normal"
-           font-weight="normal"
-           font-size="14"
-           x="0"
-           y="0"
-           id="text5238"
-           style="font-style:normal;font-weight:normal;font-size:14px;font-family:Helvetica;fill:#42a848;fill-opacity:1;stroke:none">(predecessor_done[j] == true)</text>
-      </g>
-      <!-- transform -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5248">
-      <g
-         id="g5246"
-         style="fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1">
-        <path
-           d="m 204,81 v 25"
-           id="path5244"
-           inkscape:connector-curvature="0" />
-      </g>
-      <!-- drawing style -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5254">
-      <g
-         id="g5252"
-         style="fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1">
-        <path
-           d="M 201.4118,96.340744 204,106 l 2.5882,-9.659256"
-           id="path5250"
-           inkscape:connector-curvature="0" />
-      </g>
-      <!-- drawing style -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5260">
-      <g
-         id="g5258"
-         style="fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1">
-        <path
-           d="M 204,30 V 55"
-           id="path5256"
-           inkscape:connector-curvature="0" />
-      </g>
-      <!-- drawing style -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5266">
-      <g
-         id="g5264"
-         style="fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1">
-        <path
-           d="M 201.4118,45.34074 204,55 l 2.5882,-9.65926"
-           id="path5262"
-           inkscape:connector-curvature="0" />
-      </g>
-      <!-- drawing style -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5272">
-      <g
-         id="g5270"
-         style="fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1">
-        <path
-           d="M 204,-21 V 4"
-           id="path5268"
-           inkscape:connector-curvature="0" />
-      </g>
-      <!-- drawing style -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5278">
-      <g
-         id="g5276"
-         style="fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1">
-        <path
-           d="M 201.4118,-5.6592584 204,4 l 2.5882,-9.6592584"
-           id="path5274"
-           inkscape:connector-curvature="0" />
-      </g>
-      <!-- drawing style -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5284">
-      <g
-         id="g5282"
-         style="fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1">
-        <path
-           d="m 204,-72 v 25"
-           id="path5280"
-           inkscape:connector-curvature="0" />
-      </g>
-      <!-- drawing style -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5290">
-      <g
-         id="g5288"
-         style="fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1">
-        <path
-           d="M 201.4118,-56.65926 204,-47 l 2.5882,-9.65926"
-           id="path5286"
-           inkscape:connector-curvature="0" />
-      </g>
-      <!-- drawing style -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5296">
-      <g
-         id="g5294"
-         style="fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1">
-        <path
-           d="m 204,-123 v 25"
-           id="path5292"
-           inkscape:connector-curvature="0" />
-      </g>
-      <!-- drawing style -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5302">
-      <g
-         id="g5300"
-         style="fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1">
-        <path
-           d="M 201.4118,-107.65926 204,-98 l 2.5882,-9.65926"
-           id="path5298"
-           inkscape:connector-curvature="0" />
-      </g>
-      <!-- drawing style -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5308">
-      <g
-         id="g5306"
-         style="fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1">
-        <path
-           d="m 204,208 v 51"
-           id="path5304"
-           inkscape:connector-curvature="0" />
-      </g>
-      <!-- drawing style -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5314">
-      <g
-         id="g5312"
-         style="fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1">
-        <path
-           d="M 201.4118,249.34074 204,259 l 2.5882,-9.65926"
-           id="path5310"
-           inkscape:connector-curvature="0" />
-      </g>
-      <!-- drawing style -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5320">
-      <g
-         id="g5318"
-         style="fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1">
-        <path
-           d="m 204,132 v 50"
-           id="path5316"
-           inkscape:connector-curvature="0" />
-      </g>
-      <!-- drawing style -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5326">
-      <g
-         id="g5324"
-         style="fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1">
-        <path
-           d="M 201.4118,172.34074 204,182 l 2.5882,-9.65926"
-           id="path5322"
-           inkscape:connector-curvature="0" />
-      </g>
-      <!-- drawing style -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5332">
-      <g
-         id="g5330"
-         style="fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1">
-        <path
-           d="m 204,-225 v 76"
-           id="path5328"
-           inkscape:connector-curvature="0" />
-      </g>
-      <!-- drawing style -->
-    </g>
-    <!-- transform -->
-    <g
-       transform="translate(-191,264)"
-       id="g5338">
-      <g
-         id="g5336"
-         style="fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1">
-        <path
-           d="M 201.4118,-158.65926 204,-149 l 2.5882,-9.65926"
-           id="path5334"
-           inkscape:connector-curvature="0" />
-      </g>
-      <!-- drawing style -->
-    </g>
-    <!-- transform -->
-  </g>
-  <!-- default stroke -->
-</svg>
-<!-- bounding box -->
+<?xml version="1.0" standalone="no"?>
 
+<svg 
+     version="1.1"
+     baseProfile="full"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns:ev="http://www.w3.org/2001/xml-events"
+     x="0px"
+     y="0px"
+     width="273px"
+     height="550px"
+     viewBox="0 0 273 550"
+     >
+<title></title>
+<desc>Creator: FreeHEP Graphics2D Driver Producer: org.freehep.graphicsio.svg.SVGGraphics2D Revision Source:  Date: Friday, March 9, 2018 7:54:54 PM IST</desc>
+<g stroke-linejoin="miter" stroke-dashoffset="0" stroke-dasharray="none" stroke-width="1" stroke-miterlimit="10" stroke-linecap="square">
+<g fill-opacity="1" fill-rule="nonzero" stroke="none" fill="#ffffff">
+  <path d="M 0 0 L 0 0 L 0 0 L 0 0 L 0 0 z"/>
+</g> <!-- drawing style -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g fill-opacity="1" fill-rule="nonzero" stroke="none" fill="#a5afcd">
+  <path d="M 216 -136 C 216 -129.37258300203047 210.62741699796953 -124 204 -124 C 197.37258300203047 -124 192 -129.37258300203047 192 -136 C 192 -142.62741699796953 197.37258300203047 -148 204 -148 C 210.62741699796953 -148 216 -142.62741699796953 216 -136 z"/>
+</g> <!-- drawing style -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g fill="none" stroke-opacity="1" stroke="#000000">
+  <path d="M 216 -136 C 216 -129.37258300203047 210.62741699796953 -124 204 -124 C 197.37258300203047 -124 192 -129.37258300203047 192 -136 C 192 -142.62741699796953 197.37258300203047 -148 204 -148 C 210.62741699796953 -148 216 -142.62741699796953 216 -136 z"/>
+</g> <!-- drawing style -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g fill="none" stroke-opacity="1" stroke="#000000">
+  <path d="M 199.66987298107782 -138.5 C 198.45663886685713 -136.39861687269396 198.92727944876506 -133.72948149694525 200.7860619515673 -132.1697777844051 C 202.64484445436955 -130.61007407186497 205.35515554563045 -130.61007407186497 207.2139380484327 -132.1697777844051 C 209.07272055123494 -133.72948149694525 209.54336113314287 -136.39861687269396 208.33012701892218 -138.5"/>
+</g> <!-- drawing style -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g fill-opacity="1" fill-rule="nonzero" stroke="none" fill="#a5afcd">
+  <path d="M 216 -85 C 216 -78.37258300203048 210.62741699796953 -73 204 -73 C 197.37258300203047 -73 192 -78.37258300203048 192 -85 C 192 -91.62741699796952 197.37258300203047 -97 204 -97 C 210.62741699796953 -97 216 -91.62741699796952 216 -85 z"/>
+</g> <!-- drawing style -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g fill="none" stroke-opacity="1" stroke="#000000">
+  <path d="M 216 -85 C 216 -78.37258300203048 210.62741699796953 -73 204 -73 C 197.37258300203047 -73 192 -78.37258300203048 192 -85 C 192 -91.62741699796952 197.37258300203047 -97 204 -97 C 210.62741699796953 -97 216 -91.62741699796952 216 -85 z"/>
+</g> <!-- drawing style -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g fill-opacity="1" fill-rule="nonzero" stroke="none" fill="#a5afcd">
+  <path d="M 216 -238 C 216 -231.37258300203047 210.62741699796953 -226 204 -226 C 197.37258300203047 -226 192 -231.37258300203047 192 -238 C 192 -244.62741699796953 197.37258300203047 -250 204 -250 C 210.62741699796953 -250 216 -244.62741699796953 216 -238 z"/>
+</g> <!-- drawing style -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g fill="none" stroke-opacity="1" stroke="#000000">
+  <path d="M 216 -238 C 216 -231.37258300203047 210.62741699796953 -226 204 -226 C 197.37258300203047 -226 192 -231.37258300203047 192 -238 C 192 -244.62741699796953 197.37258300203047 -250 204 -250 C 210.62741699796953 -250 216 -244.62741699796953 216 -238 z"/>
+</g> <!-- drawing style -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g fill="none" stroke-opacity="1" stroke="#000000">
+  <path d="M 212 -238 C 212 -233.58172200135365 208.41827799864635 -230 204 -230 C 199.58172200135365 -230 196 -233.58172200135365 196 -238 C 196 -242.41827799864635 199.58172200135365 -246 204 -246 C 208.41827799864635 -246 212 -242.41827799864635 212 -238 z"/>
+</g> <!-- drawing style -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g fill-opacity="1" fill-rule="nonzero" stroke="none" fill="#a5afcd">
+  <path d="M 216 195 C 216 201.62741699796953 210.62741699796953 207 204 207 C 197.37258300203047 207 192 201.62741699796953 192 195 C 192 188.37258300203047 197.37258300203047 183 204 183 C 210.62741699796953 183 216 188.37258300203047 216 195 z"/>
+</g> <!-- drawing style -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g fill="none" stroke-opacity="1" stroke="#000000">
+  <path d="M 216 195 C 216 201.62741699796953 210.62741699796953 207 204 207 C 197.37258300203047 207 192 201.62741699796953 192 195 C 192 188.37258300203047 197.37258300203047 183 204 183 C 210.62741699796953 183 216 188.37258300203047 216 195 z"/>
+</g> <!-- drawing style -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g fill="none" stroke-opacity="1" stroke="#000000">
+  <path d="M 199.66987298107782 192.5 C 198.45663886685713 194.60138312730604 198.92727944876506 197.27051850305475 200.7860619515673 198.8302222155949 C 202.64484445436955 200.38992592813503 205.35515554563045 200.38992592813503 207.2139380484327 198.8302222155949 C 209.07272055123494 197.27051850305475 209.54336113314287 194.60138312730604 208.33012701892218 192.5"/>
+</g> <!-- drawing style -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g fill-opacity="1" fill-rule="nonzero" stroke="none" fill="#a5afcd">
+  <path d="M 216 272 C 216 278.62741699796953 210.62741699796953 284 204 284 C 197.37258300203047 284 192 278.62741699796953 192 272 C 192 265.37258300203047 197.37258300203047 260 204 260 C 210.62741699796953 260 216 265.37258300203047 216 272 z"/>
+</g> <!-- drawing style -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g fill="none" stroke-opacity="1" stroke="#000000">
+  <path d="M 216 272 C 216 278.62741699796953 210.62741699796953 284 204 284 C 197.37258300203047 284 192 278.62741699796953 192 272 C 192 265.37258300203047 197.37258300203047 260 204 260 C 210.62741699796953 260 216 265.37258300203047 216 272 z"/>
+</g> <!-- drawing style -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g fill-opacity="1" fill-rule="nonzero" stroke="none" fill="#a5afcd">
+  <path d="M 216 119 C 216 125.62741699796952 210.62741699796953 131 204 131 C 197.37258300203047 131 192 125.62741699796952 192 119 C 192 112.37258300203048 197.37258300203047 107 204 107 C 210.62741699796953 107 216 112.37258300203048 216 119 z"/>
+</g> <!-- drawing style -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g fill="none" stroke-opacity="1" stroke="#000000">
+  <path d="M 216 119 C 216 125.62741699796952 210.62741699796953 131 204 131 C 197.37258300203047 131 192 125.62741699796952 192 119 C 192 112.37258300203048 197.37258300203047 107 204 107 C 210.62741699796953 107 216 112.37258300203048 216 119 z"/>
+</g> <!-- drawing style -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g fill="none" stroke-opacity="1" stroke="#000000">
+  <path d="M 199.66987298107782 116.5 C 198.45663886685713 118.60138312730604 198.92727944876506 121.27051850305475 200.7860619515673 122.83022221559489 C 202.64484445436955 124.38992592813504 205.35515554563045 124.38992592813504 207.2139380484327 122.83022221559489 C 209.07272055123494 121.27051850305475 209.54336113314287 118.60138312730604 208.33012701892218 116.5"/>
+</g> <!-- drawing style -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g fill-opacity="1" fill-rule="nonzero" stroke="none" fill="#a5afcd">
+  <path d="M 216 -34 C 216 -27.37258300203048 210.62741699796953 -22 204 -22 C 197.37258300203047 -22 192 -27.37258300203048 192 -34 C 192 -40.62741699796952 197.37258300203047 -46 204 -46 C 210.62741699796953 -46 216 -40.62741699796952 216 -34 z"/>
+</g> <!-- drawing style -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g fill="none" stroke-opacity="1" stroke="#000000">
+  <path d="M 216 -34 C 216 -27.37258300203048 210.62741699796953 -22 204 -22 C 197.37258300203047 -22 192 -27.37258300203048 192 -34 C 192 -40.62741699796952 197.37258300203047 -46 204 -46 C 210.62741699796953 -46 216 -40.62741699796952 216 -34 z"/>
+</g> <!-- drawing style -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g fill="none" stroke-opacity="1" stroke="#000000">
+  <path d="M 199.66987298107782 -36.5 C 198.45663886685713 -34.39861687269397 198.92727944876506 -31.729481496945258 200.7860619515673 -30.16977778440511 C 202.64484445436955 -28.610074071864965 205.35515554563045 -28.610074071864965 207.2139380484327 -30.16977778440511 C 209.07272055123494 -31.729481496945255 209.54336113314287 -34.39861687269397 208.33012701892218 -36.5"/>
+</g> <!-- drawing style -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g fill-opacity="1" fill-rule="nonzero" stroke="none" fill="#a5afcd">
+  <path d="M 216 68 C 216 74.62741699796952 210.62741699796953 80 204 80 C 197.37258300203047 80 192 74.62741699796952 192 68 C 192 61.37258300203048 197.37258300203047 56 204 56 C 210.62741699796953 56 216 61.37258300203048 216 68 z"/>
+</g> <!-- drawing style -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g fill="none" stroke-opacity="1" stroke="#000000">
+  <path d="M 216 68 C 216 74.62741699796952 210.62741699796953 80 204 80 C 197.37258300203047 80 192 74.62741699796952 192 68 C 192 61.37258300203048 197.37258300203047 56 204 56 C 210.62741699796953 56 216 61.37258300203048 216 68 z"/>
+</g> <!-- drawing style -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g fill-opacity="1" fill-rule="nonzero" stroke="none" fill="#a5afcd">
+  <path d="M 216 17 C 216 23.62741699796952 210.62741699796953 29 204 29 C 197.37258300203047 29 192 23.62741699796952 192 17 C 192 10.37258300203048 197.37258300203047 5 204 5 C 210.62741699796953 5 216 10.37258300203048 216 17 z"/>
+</g> <!-- drawing style -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g fill="none" stroke-opacity="1" stroke="#000000">
+  <path d="M 216 17 C 216 23.62741699796952 210.62741699796953 29 204 29 C 197.37258300203047 29 192 23.62741699796952 192 17 C 192 10.37258300203048 197.37258300203047 5 204 5 C 210.62741699796953 5 216 10.37258300203048 216 17 z"/>
+</g> <!-- drawing style -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g fill="none" stroke-opacity="1" stroke="#000000">
+  <path d="M 199.66987298107782 14.5 C 198.45663886685713 16.601383127306033 198.92727944876506 19.270518503054742 200.7860619515673 20.83022221559489 C 202.64484445436955 22.389925928135035 205.35515554563045 22.389925928135035 207.2139380484327 20.83022221559489 C 209.07272055123494 19.270518503054745 209.54336113314287 16.60138312730603 208.33012701892218 14.5"/>
+</g> <!-- drawing style -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g transform="matrix(1, 0, 0, 1, 216, 157)">
+<text fill-opacity="1" font-style="normal" font-family="Helvetica" font-weight="normal" stroke="none" fill="#4242a8" font-size="14" x="0" y="0">successor_can_run = true</text>
+</g> <!-- transform -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g transform="matrix(1, 0, 0, 1, 221, 47)">
+<text fill-opacity="1" font-style="normal" font-family="Helvetica" font-weight="normal" stroke="none" fill="#42a0a8" font-size="14" x="0" y="0">pta_start[m]!</text>
+</g> <!-- transform -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g transform="matrix(1, 0, 0, 1, 221, -55)">
+<text fill-opacity="1" font-style="normal" font-family="Helvetica" font-weight="normal" stroke="none" fill="#42a0a8" font-size="14" x="0" y="0">pta_done[1]?</text>
+</g> <!-- transform -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g transform="matrix(1, 0, 0, 1, 221, 89)">
+<text fill-opacity="1" font-style="normal" font-family="Helvetica" font-weight="normal" stroke="none" fill="#42a0a8" font-size="14" x="0" y="0">pta_done[m]?</text>
+</g> <!-- transform -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g transform="matrix(1, 0, 0, 1, 216, -216)">
+<text fill-opacity="1" font-style="normal" font-family="Helvetica" font-weight="normal" stroke="none" fill="#42a848" font-size="14" x="0" y="0">(predecessor_done[1] == true) &amp;&amp;</text>
+</g> <!-- transform -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g transform="matrix(1, 0, 0, 1, 216, -199)">
+<text fill-opacity="1" font-style="normal" font-family="Helvetica" font-weight="normal" stroke="none" fill="#42a848" font-size="14" x="0" y="0">// ...</text>
+</g> <!-- transform -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g transform="matrix(1, 0, 0, 1, 216, -182)">
+<text fill-opacity="1" font-style="normal" font-family="Helvetica" font-weight="normal" stroke="none" fill="#42a848" font-size="14" x="0" y="0">(predecessor_done[j] == true)</text>
+</g> <!-- transform -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g transform="matrix(1, 0, 0, 1, 221, 123)">
+<text fill-opacity="1" font-style="normal" font-family="Helvetica" font-weight="normal" stroke="none" fill="#8c3863" font-size="14" x="0" y="0">update</text>
+</g> <!-- transform -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g transform="matrix(1, 0, 0, 1, 221, -250)">
+<text fill-opacity="1" font-style="normal" font-family="Helvetica" font-weight="normal" stroke="none" fill="#8c3863" font-size="14" x="0" y="0">init_node</text>
+</g> <!-- transform -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g transform="matrix(1, 0, 0, 1, 221, -106)">
+<text fill-opacity="1" font-style="normal" font-family="Helvetica" font-weight="normal" stroke="none" fill="#42a0a8" font-size="14" x="0" y="0">pta_start[1]!</text>
+</g> <!-- transform -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g transform="matrix(1, 0, 0, 1, 216, -157)">
+<text fill-opacity="1" font-style="normal" font-family="Helvetica" font-weight="normal" stroke="none" fill="#42a0a8" font-size="14" x="0" y="0">try_to_run?</text>
+</g> <!-- transform -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g transform="matrix(1, 0, 0, 1, 212, 234)">
+<text fill-opacity="1" font-style="normal" font-family="Helvetica" font-weight="normal" stroke="none" fill="#42a0a8" font-size="14" x="0" y="0">try_to_run_successor!</text>
+</g> <!-- transform -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g stroke-linejoin="bevel" stroke-linecap="round" fill="none" stroke-opacity="1" stroke="#000000">
+  <path d="M 204 132 L 204 182"/>
+</g> <!-- drawing style -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g stroke-linejoin="bevel" stroke-linecap="round" fill="none" stroke-opacity="1" stroke="#000000">
+  <path d="M 201.41180419921875 172.3407440185547 L 204 182 L 206.58819580078125 172.3407440185547"/>
+</g> <!-- drawing style -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g stroke-linejoin="bevel" stroke-linecap="round" fill="none" stroke-opacity="1" stroke="#000000">
+  <path d="M 204 208 L 204 259"/>
+</g> <!-- drawing style -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g stroke-linejoin="bevel" stroke-linecap="round" fill="none" stroke-opacity="1" stroke="#000000">
+  <path d="M 201.41180419921875 249.3407440185547 L 204 259 L 206.58819580078125 249.3407440185547"/>
+</g> <!-- drawing style -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g stroke-linejoin="bevel" stroke-linecap="round" fill="none" stroke-opacity="1" stroke="#000000">
+  <path d="M 204 -225 L 204 -149"/>
+</g> <!-- drawing style -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g stroke-linejoin="bevel" stroke-linecap="round" fill="none" stroke-opacity="1" stroke="#000000">
+  <path d="M 201.41180419921875 -158.6592559814453 L 204 -149 L 206.58819580078125 -158.6592559814453"/>
+</g> <!-- drawing style -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g stroke-linejoin="bevel" stroke-linecap="round" fill="none" stroke-opacity="1" stroke="#000000">
+  <path d="M 204 81 L 204 106"/>
+</g> <!-- drawing style -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g stroke-linejoin="bevel" stroke-linecap="round" fill="none" stroke-opacity="1" stroke="#000000">
+  <path d="M 201.41180419921875 96.34074401855469 L 204 106 L 206.58819580078125 96.34074401855469"/>
+</g> <!-- drawing style -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g stroke-linejoin="bevel" stroke-linecap="round" fill="none" stroke-opacity="1" stroke="#000000">
+  <path d="M 204 30 L 204 55"/>
+</g> <!-- drawing style -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g stroke-linejoin="bevel" stroke-linecap="round" fill="none" stroke-opacity="1" stroke="#000000">
+  <path d="M 201.41180419921875 45.34074020385742 L 204 55 L 206.58819580078125 45.34074020385742"/>
+</g> <!-- drawing style -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g stroke-linejoin="bevel" stroke-linecap="round" fill="none" stroke-opacity="1" stroke="#000000">
+  <path d="M 204 -123 L 204 -98"/>
+</g> <!-- drawing style -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g stroke-linejoin="bevel" stroke-linecap="round" fill="none" stroke-opacity="1" stroke="#000000">
+  <path d="M 201.41180419921875 -107.65925598144531 L 204 -98 L 206.58819580078125 -107.65925598144531"/>
+</g> <!-- drawing style -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g stroke-linejoin="bevel" stroke-linecap="round" fill="none" stroke-opacity="1" stroke="#000000">
+  <path d="M 204 -21 L 204 4"/>
+</g> <!-- drawing style -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g stroke-linejoin="bevel" stroke-linecap="round" fill="none" stroke-opacity="1" stroke="#000000">
+  <path d="M 201.41180419921875 -5.6592583656311035 L 204 4 L 206.58819580078125 -5.6592583656311035"/>
+</g> <!-- drawing style -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g stroke-linejoin="bevel" stroke-linecap="round" fill="none" stroke-opacity="1" stroke="#000000">
+  <path d="M 204 -72 L 204 -47"/>
+</g> <!-- drawing style -->
+</g> <!-- transform -->
+<g transform="matrix(1, 0, 0, 1, -191, 264)">
+<g stroke-linejoin="bevel" stroke-linecap="round" fill="none" stroke-opacity="1" stroke="#000000">
+  <path d="M 201.41180419921875 -56.65925979614258 L 204 -47 L 206.58819580078125 -56.65925979614258"/>
+</g> <!-- drawing style -->
+</g> <!-- transform -->
+</g> <!-- default stroke -->
+</svg> <!-- bounding box -->

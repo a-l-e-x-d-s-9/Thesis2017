@@ -13,7 +13,7 @@ ARG_1=$1
 
 if [ "$ARG_1" = "adapt" ]
 then
-  ../Source/adapt_to_latex.sh ../Source/Thesis_trunk_to_latex.txt Thesis-Main.tex Thesis-FrontMatter.tex Thesis-Appendices.tex
+  ../Source/adapt_to_latex.sh thesis ../Source/Thesis_trunk_to_latex.txt Thesis-Main.tex Thesis-FrontMatter.tex Thesis-Appendices.tex
 fi
 
 #mkdir output_pdftex

@@ -6,20 +6,30 @@ import os
 import re
 
 def get_args():
-    if len( sys.argv ) != 5:
-        raise IOError("Must get: 1. source file, 2. main tex. 3. abstract tex. 4. abstract tex")
+    if len( sys.argv ) != 6:
+        raise IOError("Must get: 1. thesis/paper ; 2. source file ; 3. main tex ; 4. abstract tex ; 5. appendices tex ;")
         
-    file_source_path            = sys.argv[1]
-    print( "file_source_path     : " + file_source_path )
+    output_type                 = sys.argv[1]
+    print( "output_type              : " + output_type )
+    if ( "thesis" == output_type ):
+        is_paper = False
+    else:
+        if ( "paper" == output_type ):
+            is_paper = True
+        else:
+            raise IOError("First argument must be: thesis/paper.")
+        
+    file_source_path            = sys.argv[2]
+    print( "file_source_path         : " + file_source_path )
     
-    file_main_tex_path          = sys.argv[2]
-    print( "file_main_tex_path: " + file_main_tex_path )
+    file_main_tex_path          = sys.argv[3]
+    print( "file_main_tex_path       : " + file_main_tex_path )
     
-    file_abstract_tex_path      = sys.argv[3]
-    print( "file_abstract_tex_path: " + file_abstract_tex_path )
+    file_abstract_tex_path      = sys.argv[4]
+    print( "file_abstract_tex_path   : " + file_abstract_tex_path )
     
-    file_appendices_tex_path    = sys.argv[4]
-    print( "file_appendices_tex_path: " + file_appendices_tex_path )
+    file_appendices_tex_path    = sys.argv[5]
+    print( "file_appendices_tex_path : " + file_appendices_tex_path )
 
 
     if os.path.exists(file_source_path):
@@ -38,7 +48,7 @@ def get_args():
     
     file_appendices_tex = open( file_appendices_tex_path, 'w' )
 
-    return file_source, file_main_tex, file_abstract_tex, file_abstract_tex_path, file_appendices_tex
+    return is_paper, file_source, file_main_tex, file_abstract_tex, file_abstract_tex_path, file_appendices_tex
 
 
 def latex_add_label( in_text, label ):
@@ -118,6 +128,12 @@ def latex_simple_replace( (original_text, replace_with_text) ):
     print( "    original_text      :", original_text )
     print( "    replace_with_text  :", replace_with_text    )
     return replace_with_text
+    
+def latex_remove_underscores( in_text ):
+    print( "*** latex_remove_underscores")
+    print( "    original_text      :", in_text )
+    print( "    replace_with_text  :", in_text.replace( "_", "" )    )
+    return in_text.replace( "_", "" )
 
 def latex_escape_characters( in_text ):
     #in_text = in_text.replace( "[change]", "\\[change\\]" )
@@ -354,22 +370,22 @@ style_array = [
         [ r'()(probability_failure)([^_])'                                                      , "ColorEdgeProbability" ], 
         
         ], [latex_color_for_uppaal_middle] ],
-    [ [ r'([\] ])\[(\d+)\]'], [latex_citation] ],
-    [ [ r'\n[ \t]*(\*)'], [latex_bullets] ],
-    [ [ r'(\[change\])'], [latex_color_change] ],
-    [ [ r'(\[TODO\][^\r\n\.\{\}\\]*)'],     [latex_color_todo] ],
-    [ [ r'(\[change-\])'], [latex_color_change_start] ],
-    [ [ r'(\[-change\])'], [latex_color_change_end] ],
-    [ [ r'(\n________________\r)'], [latex_new_page] ],
+    [ [ r'([\] ])\[(\d+)\]']                    , [latex_citation] ],
+    [ [ r'\n[ \t]*(\*)']                        , [latex_bullets] ],
+    [ [ r'(\[change\])']                        , [latex_color_change] ],
+    [ [ r'(\[TODO\][^\r\n\.\{\}\\]*)']          , [latex_color_todo] ],
+    [ [ r'(\[change-\])']                       , [latex_color_change_start] ],
+    [ [ r'(\[-change\])']                       , [latex_color_change_end] ],
+    [ [ r'(\n________________\r)']              , [latex_new_page] ],
     [ [ 
-        [ 'https://github.com/a-l-e-x-d-s-9/plps_verification.git', 'https://github.com/a-l-e-x-d-s-9/plps_verification.git' ],
-        [ 'IntelliJ IDEA', 'https://www.jetbrains.com/idea/download' ],
-        [ 'UPPAAL 4.1.20-stratego-4', 'http://people.cs.aau.dk/~marius/stratego/download.html#download' ],
-        [ 'Ubuntu 17.04', 'http://releases.ubuntu.com/17.04/' ],
+        [ 'https://github.com/a-l-e-x-d-s-9/plps_verification.git'      , 'https://github.com/a-l-e-x-d-s-9/plps_verification.git' ],
+        [ 'IntelliJ IDEA'                                               , 'https://www.jetbrains.com/idea/download' ],
+        [ 'UPPAAL 4.1.20-stratego-4'                                    , 'http://people.cs.aau.dk/~marius/stratego/download.html#download' ],
+        [ 'Ubuntu 17.04'                                                , 'http://releases.ubuntu.com/17.04/' ],
     ], [latex_add_href] ],
-     [ [ 
-        [ 'c_l_o_c_k', 'clock' ],
-        [ 'd_o_u_b_l_e', 'double' ],
+    [ [ 
+        [ 'c_l_o_c_k'       , 'clock' ],
+        [ 'd_o_u_b_l_e'     , 'double' ],
     ], [latex_simple_replace] ],
 ]
 
@@ -415,7 +431,7 @@ def main():
     reload(sys)
     sys.setdefaultencoding('utf-8')
     
-    file_source, file_main_tex, file_abstract_tex, file_abstract_tex_path, file_appendices_tex = get_args()
+    is_paper, file_source, file_main_tex, file_abstract_tex, file_abstract_tex_path, file_appendices_tex = get_args()
     
     #file_main_tex.write("Good: " + file_source.readline() )
     
@@ -488,6 +504,37 @@ def main():
         source_appendix = re.sub( appendix_name + appendix_title, "\\" + sectioning_type + "{ " + appendix_title + "}" + "\\label{" + appendix_link + "} ", source_appendix )
         
         source_before_references = re.sub( "<" + appendix_name + ">", "Appendix \\\\ref{" + appendix_link + "}", source_before_references )
+    
+    
+    # label/ref underscore remover start
+    
+    if True == is_paper:
+        print("** ** ###############################################")
+        
+        pattern_for_labels      = re.compile(r'\\label\{([^\}]+)\}')
+        all_pattern_for_labels  = re.findall( pattern_for_labels, source_before_references )
+
+        
+        for pattern_for_label in all_pattern_for_labels:
+            
+            print("pattern_for_label: " + str(pattern_for_label) + " -> " + str(pattern_for_label.replace("_", "")) )
+            source_before_references = source_before_references.replace( "\\label{" + pattern_for_label + "}", "\\label{" + pattern_for_label.replace("_", "") + "}" )
+            
+            
+        pattern_for_refs      = re.compile(r'\\ref\{([^\}]+)\}')
+        all_pattern_for_refs  = re.findall( pattern_for_refs, source_before_references )
+
+        
+        for pattern_for_ref in all_pattern_for_refs:
+            
+            print("pattern_for_ref: " + str(pattern_for_ref) + " -> " + str(pattern_for_ref.replace("_", "")) )
+            source_before_references = source_before_references.replace( "\\ref{" + pattern_for_ref + "}", "\\ref{" + pattern_for_ref.replace("_", "") + "}" )
+            
+            
+            
+        print("** ** ###############################################")
+    
+    # label/ref underscore remover end
     
     
     pattern_bullets_block   = re.compile(r'((?:(?:[ \t]*\\item [^\r\n]+)(?:\r\n)+)+)')
